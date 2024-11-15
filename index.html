@@ -146,19 +146,35 @@
         }
 
         /* Projects Section */
-        .projects {
-            padding: 30px;
-            background: linear-gradient(90deg, #d6eaf8, #aed6f1);
-        }
-
         .project-item {
-            margin-bottom: 20px;
-            padding: 20px;
-            border: 2px solid #5dade2;
-            border-radius: 10px;
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 2px solid #5dade2;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.project-item h3 {
+    margin-bottom: 10px;
+    color: #2e86c1;
+}
+
+.project-item ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.project-item li {
+    margin: 5px 0;
+}
+
 
         /* Contact Section */
         .contact {
@@ -241,9 +257,25 @@
     <section class="projects" id="projects">
         <h2>Projects</h2>
         <div class="project-item">
-            <h3>Portfolio Website</h3>
-            <p>A responsive and interactive portfolio showcasing my skills and projects.</p>
-        </div>
+    <h3>Woman Security</h3>
+    <ul>
+        <li>It is designed user-friendly and built in Android Studio using Java code.</li>
+        <li>It has features such as a shake detector, which allows the device to send an SOS message to a pre-selected mobile number when shaken.</li>
+        <li>Transmits the most recent location data to the designated mobile device and provides additional features.</li>
+        <li><strong>Responsibility:</strong> Back-End code, XML design for Front-End, Documentation.</li>
+    </ul>
+</div>
+
+<div class="project-item">
+    <h3>Job Portal</h3>
+    <ul>
+        <li>Using Java Spring Boot and MySQL-based back-end, and front-end built with HTML & CSS.</li>
+        <li>This helps job seekers and also recruiters.</li>
+        <li>Showcases expertise in Java development and database management with MySQL.</li>
+        <li><strong>Responsibility:</strong> Back-End API using Java Spring Boot, database creation, and Documentation.</li>
+    </ul>
+</div>
+
     </section>
 
     <section class="contact" id="contact">
