@@ -1,0 +1,70 @@
+.skills {
+    width: 100vw;
+    max-width: 75rem;
+    height: auto;
+    padding: 4rem;
+    margin: auto;
+    background-image: url(/src/assets/homeBG2.svg);
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.skill-heading {
+    font-size: 2.5rem;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    /* Added margin for spacing */
+}
+
+.skill-heading::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    margin: 8px auto;
+    background-color: orange;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+}
+
+.skill-heading:hover::after {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.skill-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    /* Consistent spacing between skill bars */
+}
+
+.skill-name {
+    width: 6rem;
+    /* Adjusted width for better alignment */
+    text-align: right;
+    /* Align text to the right for better spacing */
+    font-weight: bold;
+}
+
+.skill-progress {
+    width: 70%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 1rem;
+}
+
+.skill-progress-level {
+    height: 20px;
+    background-color: #76c7c0;
+}
+
+.skill-level {
+    font-size: 0.9rem;
+    font-weight: bold;
+}

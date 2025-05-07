@@ -1,0 +1,185 @@
+#intro{
+    width: 100vw;
+    max-width: 75rem;
+    height: 100dvh;
+    padding: 4rem;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    background-image: url(/src/assets/homeBG2.svg);
+    background-repeat: no-repeat;
+    background-position: right top;
+    z-index: -1;
+    /* background: #f3b408; */
+    display: flex;
+}
+
+.intro-in {
+    height: auto;
+    width: 50%;
+    padding: 4rem;
+    /* background: #a2a2a2; */
+    background: linear-gradient(145ged, rgb(219, 237, 153),
+                rgba(190, 148, 76, 0.929));
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgb(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+.profilePic-div{
+   width: 50%;
+   text-align: center;
+   /* background: linear-gradient(145ged,rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgb(0,0,0,0.1); */
+}
+
+.profilePic-div >.profilePic{
+    height: auto; 
+    width:70%; 
+    object-fit:fill;
+    border-radius: 40rem;
+    filter: drop-shadow(10px 10px 10px #757272);
+}
+
+
+.introContent{
+    height:fit-content;
+    width: 100vw;
+    font-size: 3rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.introContent>.hello{
+    font-size: 1rem;
+}
+.introContent>.intro-text{
+    font-size: 2rem;
+}
+.introContent> .introName{
+    /* background: #757272; */
+    display: inline-block;
+    color: #f3b408;
+    /* overflow: hidden; */
+    font-weight: 50;
+    /* border-right: 0.15em solid #f3b408; */
+    /* white-space: nowrap; */
+    /* animation: typing 3.5s steps(40,end) infinite; */
+}
+@keyframes typing{
+    from{
+        width: 0;
+
+    }to{
+        width: 100%;
+    }
+}
+
+.introContent>.introP{
+    height: 60px;
+    /* display: inline; */
+    /* white-space: nowrap; */
+    /* overflow: hidden; */
+}
+
+.introContent>.introPara{
+    font-size: 20px;
+}
+
+.hireImg {
+    object-fit: cover;
+    margin: 0 0.25rem;
+    height: 1rem;
+}
+
+.socialMedia a {
+    height: 2rem;
+    width: 5rem;
+    display: flex;
+    align-items: stretch;
+    /* background: #ff9966; */
+    flex-wrap: nowrap;
+    gap: 1rem;
+    margin: 10px;
+}
+
+.socialMedia a img {
+    width: 30px;
+    aspect-ratio: 1/1;
+}
+
+.btn {
+    height: 2rem;
+    width: 6.5rem;
+    text-align: center;
+    background:#fdfdfd;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+@property --h {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.btn::before,
+.btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 10px;
+    background: conic-gradient(from var(--h), transparent, #ff9966);
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        --h: 0deg;
+    }
+
+    to {
+        --h: 360deg;
+    }
+}
+
+.btn::after {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+@media (max-width: 720px) {
+    #intro{
+        display: flex;
+        flex-direction: column;
+        padding: 3rem 2rem;
+        align-items: center;
+    }
+    .intro-in{
+        padding: 1rem;
+        width: 100%;
+    }
+    .profilePic-div{
+        width: 80%;
+        align-items: center;
+    }
+    .profilePic{
+        width: 100%;
+    }
+}

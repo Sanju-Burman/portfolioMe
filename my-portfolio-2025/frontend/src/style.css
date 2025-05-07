@@ -1,0 +1,21 @@
+* {
+    height: auto;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    /* background-color: #fffafa,#fffff0; */
+    /* background: linear-gradient(to top left, #fffafa,#fffff0); */
+    background: transparent;
+    font-family: 'Bebas Neue', 'Oswald', 'Platypi', sans-serif;
+}
+
+body {
+    background: linear-gradient(to top left, #fffafa,#fffff0);
+    /* background-repeat: no-repeat; */
+    /* background-image: url(/src/assets/homeBG2.svg); */
+    color: rgb(0, 0, 0);
+    /* overflow-y: scroll; */
+    scroll-behavior: smooth;
+}
