@@ -38,15 +38,15 @@ const Projects = () => {
     // }, []);
 
     return (
-        <div className="projects-body" id="projects">
-            <span className="projects-heading">Projects</span>
+        <div className="projects section" id="projects">
+            <h2 className="heading">Projects</h2>
             <div className="projects-timeline">
                 {projects.map((project, index) => (
                     <div
                         key={index}
                         className={`timeline-container ${project.position}`}
                     >
-                        <div className="projects-text-box">
+                        <div className="projects text-box">
                             <h2>{project.title}</h2>
                             <small>{project.date}</small>
                             <span>{project.description}</span>

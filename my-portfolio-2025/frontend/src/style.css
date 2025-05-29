@@ -5,17 +5,101 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    /* background-color: #fffafa,#fffff0; */
-    /* background: linear-gradient(to top left, #fffafa,#fffff0); */
     background: transparent;
     font-family: 'Bebas Neue', 'Oswald', 'Platypi', sans-serif;
 }
 
 body {
-    background: linear-gradient(to top left, #fffafa,#fffff0);
-    /* background-repeat: no-repeat; */
-    /* background-image: url(/src/assets/homeBG2.svg); */
+    background: linear-gradient(to top left, #fffafa,#fffbeb);
     color: rgb(0, 0, 0);
-    /* overflow-y: scroll; */
     scroll-behavior: smooth;
+}
+.heading {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.heading::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -10px;
+    left: 0;
+    background-color: orange;
+    visibility: visible;
+    transform: scaleX(1);
+    transition: all 0.3s ease-in-out;
+}
+.heading:hover::after {
+    transform: scaleX(1);
+}
+
+.section{
+    width: 100vw;
+    max-width: 75rem;
+    padding: 4rem 2rem;
+    margin: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    position: relative;
+}
+
+.timeline-container.right {
+    justify-content: flex-end;
+}
+
+.text-box {
+    background: rgba(255, 255, 255, 0.941);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    width: 45%;
+    /* color: #000000; */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.text-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.text-box h2 {
+    font-size: 3dvh;
+    margin: 0;
+}
+
+.text-box small {
+    font-size: 0.9rem;
+}
+@media (max-width: 768px) {
+    .projects .education {
+        width: 85%;
+    }
+
+    .heading {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .timeline-container {
+        justify-content: center;
+    }
 }
