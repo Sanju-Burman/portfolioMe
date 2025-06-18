@@ -1,23 +1,70 @@
+.projects-body {
+    width: 100vw;
+    max-width: 75rem;
+    padding: 4rem;
+    margin: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 .projects-timeline {
     display: flex;
     flex-direction: column;
-    position: relative;
     gap: 2rem;
+    position: relative;
 }
 
-.projects>span {
-    font-size: 1.5rem;
-    line-height: 1.5;
+.timeline-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
 }
 
-.projects-timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 100%;
-    background-color: #ccc;
-    transform: translateX(-50%);
-    z-index: 0;
+.timeline-container.right {
+    justify-content: flex-end;
 }
+
+.text-box {
+    width: 45%;
+}
+
+
+.project-image {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    margin-bottom: 0.8rem;
+    object-fit: cover;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.8rem;
+}
+
+.github-link,
+.deploy-link {
+    font-weight: bold;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0.5rem 1rem;
+    border-radius: 0.8rem;
+    transition: background-color 0.3s ease;
+}
+
+.github-link:hover,
+.deploy-link:hover {
+    background-color: orange;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .projects-text-box {
+        width: 90%;
+    }
+
+    .projects-heading {
+        font-size: 2rem;
+    }   }
