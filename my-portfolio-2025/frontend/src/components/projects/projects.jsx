@@ -9,7 +9,7 @@ const Projects = () => {
             date: "May 2025",
             description: "A responsive personal portfolio built using React, Node.js, and Express.",
             position: "left",
-            image: "https://via.placeholder.com/600x300?text=Portfolio+Website",
+            image: "https://res.cloudinary.com/diyl4omcs/image/upload/v1750332631/Screenshot_2025-06-19_165607_trrswx.png",
             github: "https://github.com/Sanju-Burman/portfolioMe/tree/main/my-portfolio-2025/frontend",
             deploy: "#"
         },
@@ -18,7 +18,7 @@ const Projects = () => {
             date: "April 2025",
             description: "A personalized platform helping travelers discover their ideal travel destinations based on unique preferences like interests, travel style, budget, and past travel history. This project solves the problem of overwhelming choices by offering smart, tailored suggestions — enhancing trip planning and discovery.",
             position: "right",
-            image: "https://via.placeholder.com/600x300?text=Destination+Recommender",
+            image: "https://res.cloudinary.com/diyl4omcs/image/upload/v1750332631/Screenshot_2025-06-19_165713_fypid6.png",
             github: "https://github.com/Sanju-Burman/happy-yatra",
             deploy: "https://happyyatra.netlify.app/"
         },
@@ -27,7 +27,7 @@ const Projects = () => {
             date: "February 2025",
             description: "A modern, responsive web application designed to facilitate community voting, logistics management, news updates, and user profiles. Built with React, Vite, Firebase Realtime Database, and Chart.js, this platform ensures seamless interaction for both voters and administrators.",
             position: "left",
-            image: "https://via.placeholder.com/600x300?text=E-Commerce+Analytics",
+            image: "https://res.cloudinary.com/diyl4omcs/image/upload/v1750332634/Screenshot_2025-06-19_165742_zhm3m4.png",
             github: "https://github.com/Sanju-Burman/Local-Democracy-Engagement-Platform",
             deploy: "https://neighbourgov.netlify.app/"
         }
