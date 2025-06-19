@@ -1,8 +1,6 @@
 // import React from 'react';
 import './footer.css';
-import linkedin from '../../assets/linkedin.svg'
-import whatsapp from '../../assets/whatsapp.svg'
-import instagram from '../../assets/instagram.svg'
+import { FaLinkedin, FaGithub, FaMailBulk } from 'react-icons/fa';
 
 const Footer = () => {
     return (
@@ -10,26 +8,25 @@ const Footer = () => {
             <div className="footer-logo">
                 <h2>SB.</h2>
             </div>
-            <div className="footer-socials">
-                <a href="https://www.linkedin.com/in/sanju-burman" target="_blank" rel="noopener noreferrer">
-                    <img src={linkedin} alt="Linkedin" />
+            <div className="socials">
+                <a href="https://www.linkedin.com/in/sanju-burman" target="_blank" rel="noopener noreferrer" className="social-icon">
+
+                    <FaLinkedin />
                 </a>
-                <a href="https://wa.me/+918085319797" target="_blank" rel="noopener noreferrer">
-                    <img src={whatsapp} alt="Whatsapp" />
+                <a href="https://github.com/Sanju-Burman" target="_blank" rel="noopener noreferrer" className="social-icon">
+                    <FaGithub />
                 </a>
-                <a href="https://www.instagram.com/yourusername" target="_blank" rel="noopener noreferrer">
-                    <img src={instagram} alt="Instagram" />
-                </a>
+
             </div>
             <div className="footer-nav">
-                <a href="#about">About</a>
-                <a href="#Skills">Skills</a>
+                <a href="#home">About</a>
+                <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
-                <a href="#education-body">Education</a>
+                <a href="#education">Education</a>
                 <a href="#contact">Contact</a>
             </div>
             <div className="footer-copyright">
-                <p>© 2024 SB. All Rights Reserved.</p>
+                <p>© 2025 SB. All Rights Reserved.</p>
             </div>
         </footer>
     );

@@ -6,48 +6,48 @@ const Projects = () => {
     const [projects, setProjects] = useState([
         {
             title: "Portfolio Website",
-            date: "March 2025",
+            date: "May 2025",
             description: "A responsive personal portfolio built using React, Node.js, and Express.",
             position: "left",
             image: "https://via.placeholder.com/600x300?text=Portfolio+Website",
-            github: "https://github.com/yourusername/portfolio",
-            deploy: "https://yourportfolio.com"
-        },
-        {
-            title: "E-Commerce Analytics API",
-            date: "February 2025",
-            description: "Node.js backend with MongoDB aggregation for sales insights.",
-            position: "right",
-            image: "https://via.placeholder.com/600x300?text=E-Commerce+Analytics",
-            github: "https://github.com/yourusername/ecommerce-api",
-            deploy: "https://ecommerce-insights.com"
-        },
-        {
-            title: "Task Manager",
-            date: "January 2025",
-            description: "JWT-authenticated app with user roles and notifications.",
-            position: "left",
-            image: "https://via.placeholder.com/600x300?text=Task+Manager",
-            github: "https://github.com/yourusername/task-manager",
-            deploy: "https://taskmanager.io"
+            github: "https://github.com/Sanju-Burman/portfolioMe/tree/main/my-portfolio-2025/frontend",
+            deploy: "#"
         },
         {
             title: "Destination Recommender",
             date: "April 2025",
-            description: "Full-stack project with React survey UI and personalized suggestions.",
+            description: "A personalized platform helping travelers discover their ideal travel destinations based on unique preferences like interests, travel style, budget, and past travel history. This project solves the problem of overwhelming choices by offering smart, tailored suggestions — enhancing trip planning and discovery.",
             position: "right",
             image: "https://via.placeholder.com/600x300?text=Destination+Recommender",
-            github: "https://github.com/yourusername/destination-recommender",
-            deploy: "https://recommendme.now.sh"
+            github: "https://github.com/Sanju-Burman/happy-yatra",
+            deploy: "https://happyyatra.netlify.app/"
+        },
+        {
+            title: "Local Democracy Engagement",
+            date: "February 2025",
+            description: "A modern, responsive web application designed to facilitate community voting, logistics management, news updates, and user profiles. Built with React, Vite, Firebase Realtime Database, and Chart.js, this platform ensures seamless interaction for both voters and administrators.",
+            position: "left",
+            image: "https://via.placeholder.com/600x300?text=E-Commerce+Analytics",
+            github: "https://github.com/Sanju-Burman/Local-Democracy-Engagement-Platform",
+            deploy: "https://neighbourgov.netlify.app/"
         }
+        // {
+        //     title: "Task Manager",
+        //     date: "January 2025",
+        //     description: "JWT-authenticated app with user roles and notifications.",
+        //     position: "right",
+        //     image: "https://via.placeholder.com/600x300?text=Task+Manager",
+        //     github: "https://github.com/Sanju-Burman/Loan-Application-System",
+        //     deploy: "https://taskmanager.io"
+        // },
     ]);
 
-    useEffect(() => {
-        fetch("http://localhost:5000/api/projects")
-            .then(res => res.json())
-            .then(data => setProjects(data))
-            .catch(err => console.error("Error fetching projects:", err));
-    }, []);
+    // useEffect(() => {
+    //     fetch("http://localhost:5000/api/projects")
+    //         .then(res => res.json())
+    //         .then(data => setProjects(data))
+    //         .catch(err => console.error("Error fetching projects:", err));
+    // }, []);
 
     return (
         <div className="projects-body section" id="projects">

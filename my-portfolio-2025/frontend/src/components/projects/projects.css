@@ -60,11 +60,9 @@
     color: black;
 }
 
-@media (max-width: 768px) {
-    .projects-text-box {
+@media (max-width: 820px) {
+    .text-box {
         width: 90%;
     }
-
-    .projects-heading {
-        font-size: 2rem;
-    }   }
+ 
+}

@@ -4,6 +4,7 @@
     position: relative;
     gap: 2rem;
 }
+
 .educations-timeline::before {
     content: '';
     position: absolute;
@@ -16,7 +17,13 @@
     z-index: 0;
 }
 
-.education>span{
-    font-size: 1.5rem;
-    line-height: 1.5;
+.text-box span {
+    font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+    .education.text-box {
+        padding: 1rem;
+        width: 90%;
+    }
 }
