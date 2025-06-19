@@ -89,24 +89,27 @@ PORT=5000
 MONGO_URI=your_mongodb_connection_string
 EMAIL_USER=your_email@example.com
 EMAIL_PASS=your_email_app_password
-
+```
+---
 ## 📄 Resume
 You can find and download my resume directly from the homepage using the “Download CV” button.
 
+---
 ## 🌐 Live Demo
 Live Demo: https://portfolio-me-lilac-eta.vercel.app/
 
+---
 ## 📬 Contact
 If you're hiring or would like to collaborate, feel free to connect:
 
+---
 💼 LinkedIn: Sanju Burman
 
 💻 GitHub: @Sanju-Burman
 
 📧 Email: aashusondhiya8@gmail.com
 
+---
 
 ## 📜 License
 This project is licensed under the MIT License.
-
-Let me know if you'd like me to insert your GitHub username or deploy link into this!
