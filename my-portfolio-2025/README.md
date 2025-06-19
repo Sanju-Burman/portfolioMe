@@ -54,43 +54,57 @@ server/
 
 ## 🔧 Installation
 
-1. Clone the repository
+To get a local copy up and running, follow these simple steps:
 
-```bash
-git clone https://github.com/yourusername/portfolio.git
-cd portfolio
-Install frontend dependencies
-npm install
-npm run dev
-Install backend dependencies and run the server
+1.  **Clone the repository:**
 
-cd server
-npm install
-npm run dev
+    ```bash
+    git clone [https://github.com/Sanju-Burman/my-portfolio-2025.git](https://github.com/Sanju-Burman/my-portfolio-2025.git)
+    cd my-portfolio-2025
+    ```
+
+2.  **Install frontend dependencies:**
+
+    ```bash
+    npm install
+    npm run dev
+    ```
+
+3.  **Install backend dependencies and run the server:**
+
+    ```bash
+    cd server
+    npm install
+    npm run dev
+    ```
+
+---
+
 ## 📬 Environment Variables (Backend)
-Create a .env file in the server folder:
 
+Create a `.env` file in the `server` folder with the following variables:
+
+```env
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 EMAIL_USER=your_email@example.com
 EMAIL_PASS=your_email_app_password
-📄 Resume
+
+## 📄 Resume
 You can find and download my resume directly from the homepage using the “Download CV” button.
 
 ## 🌐 Live Demo
-Live Demo: https://your-portfolio-site.com
+Live Demo: https://portfolio-me-lilac-eta.vercel.app/
 
 ## 📬 Contact
 If you're hiring or would like to collaborate, feel free to connect:
 
 💼 LinkedIn: Sanju Burman
 
-💻 GitHub: @yourusername
+💻 GitHub: @Sanju-Burman
 
-📧 Email: your.email@example.com
+📧 Email: aashusondhiya8@gmail.com
 
-🖼️ Screenshots
-(Add screenshots of homepage, skills section, and contact form with dark and light themes)
 
 ## 📜 License
 This project is licensed under the MIT License.
