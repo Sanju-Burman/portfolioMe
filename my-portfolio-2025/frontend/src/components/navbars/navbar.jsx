@@ -40,7 +40,7 @@ const Navbar = () => {
     return (
         <header className='header'>
             <nav className="navbar">
-                <a href="#home" className="logo">SB.</a>
+                <a href="#home" className="logo">SB</a>
                 <button className="hamburger" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                     {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
                 </button>

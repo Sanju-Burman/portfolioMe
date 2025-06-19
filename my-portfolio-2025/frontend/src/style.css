@@ -61,15 +61,7 @@ body.dark-theme::before {
     z-index: -1;
 }
 
-@keyframes twinkle {
-    0% {
-        transform: translateY(0);
-    }
 
-    100% {
-        transform: translateY(-100px);
-    }   
-}
 
 .heading {
     font-size: 2.5rem;
@@ -184,5 +176,15 @@ body.dark-theme::before {
 
     .timeline-container {
         justify-content: center;
+    }
+}
+
+@keyframes twinkle {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100px);
     }
 }

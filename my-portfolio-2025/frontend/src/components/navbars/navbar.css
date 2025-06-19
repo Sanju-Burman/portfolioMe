@@ -26,12 +26,7 @@
     font-weight: 700;
     color: black;
     cursor: pointer;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.logo:hover {
-    color: orange;
+    animation: slideIn 1.5s ease-in-out;
 }
 
 /* Desktop Menu */
@@ -90,7 +85,7 @@
 }
 
 /* Mobile Styles */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .desktop-menu {
         display: none;
         position: absolute;
@@ -117,8 +112,8 @@
         font-size: 1.5rem;
     }
 
-    .desktop-menu-btn {
+    /* .desktop-menu-btn {
         display: none;
-        /* Optional: hide contact button on mobile */
-    }
+        // Optional: hide contact button on mobile 
+    } */
 }

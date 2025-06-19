@@ -1,12 +1,12 @@
 // import React from 'react';
 import './footer.css';
-import { FaLinkedin, FaGithub, FaMailBulk } from 'react-icons/fa';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
     return (
         <footer className="footer">
             <div className="footer-logo">
-                <h2>SB.</h2>
+                <h2>SB</h2>
             </div>
             <div className="socials">
                 <a href="https://www.linkedin.com/in/sanju-burman" target="_blank" rel="noopener noreferrer" className="social-icon">

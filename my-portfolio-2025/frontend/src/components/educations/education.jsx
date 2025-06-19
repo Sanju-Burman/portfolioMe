@@ -4,21 +4,9 @@ import "../educations/education.css";
 const Education = () => {
 const [educations,setEducations] = useState([
     {
-        title: "10th",
-        duration: "2013 - 2014",
-        institute: "Takshshila Higher Secondary School",
-        position: "left"
-    },
-    {
-        title: "12th",
-        duration: "2015 - 2016",
-        institute: "Takshshila Higher Secondary School",
-        position: "right"
-    },
-    {
-        title: "Polytechnic Diploma",
-        duration: "2017 - 2020",
-        institute: "Govt. Polytechnic College, Jabalpur",
+        title: "Software Development",
+        duration: "Present",
+        institute: "Masai School, Bangalore",
         position: "left"
     },
     {
@@ -26,6 +14,12 @@ const [educations,setEducations] = useState([
         duration: "2020 - 2023",
         institute: "Shree Ram Institute of Science and Technology, Jabalpur",
         position: "right"
+    },
+    {
+        title: "Polytechnic Diploma",
+        duration: "2017 - 2020",
+        institute: "Govt. Polytechnic College, Jabalpur",
+        position: "left"
     }
 ]);
 

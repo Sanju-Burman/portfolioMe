@@ -20,7 +20,7 @@ const Home = () => {
                         problems and transforming ideas into digital reality.
                     </p>
                     <a href={resume} download className="home-resume-btn">
-                        Download Resume
+                        Resume
                     </a>
                     <div className="home-socials">
                         <a href="https://www.linkedin.com/in/sanju-burman" target="_blank" rel="noopener noreferrer" className="home-social-icon">
