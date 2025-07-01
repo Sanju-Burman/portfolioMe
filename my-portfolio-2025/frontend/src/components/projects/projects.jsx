@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import "./projects.css";
 
 const Projects = () => {
-    const [projects, setProjects] = useState([
+    const [projects] = useState([
         {
             title: "Portfolio Website",
             date: "May 2025",
@@ -11,43 +11,30 @@ const Projects = () => {
             position: "left",
             image: "https://res.cloudinary.com/diyl4omcs/image/upload/v1750332631/Screenshot_2025-06-19_165607_trrswx.png",
             github: "https://github.com/Sanju-Burman/portfolioMe/tree/main/my-portfolio-2025/frontend",
-            deploy: "#"
+            deploy: "#",
+            techStack: ["React", "Node.js", "Express", "MongoDB", "CSS3"]
         },
         {
             title: "Destination Recommender",
             date: "April 2025",
-            description: "A personalized platform helping travelers discover their ideal travel destinations based on unique preferences like interests, travel style, budget, and past travel history. This project solves the problem of overwhelming choices by offering smart, tailored suggestions — enhancing trip planning and discovery.",
+            description: "A platform helping travelers discover ideal destinations based on unique preferences like interests, travel style, and budget.",
             position: "right",
             image: "https://res.cloudinary.com/diyl4omcs/image/upload/v1750332631/Screenshot_2025-06-19_165713_fypid6.png",
             github: "https://github.com/Sanju-Burman/happy-yatra",
-            deploy: "https://happyyatra.netlify.app/"
+            deploy: "https://happyyatra.netlify.app/",
+            techStack: ["React", "Node.js", "Express", "MongoDB", "Axios"]
         },
         {
             title: "Local Democracy Engagement",
             date: "February 2025",
-            description: "A modern, responsive web application designed to facilitate community voting, logistics management, news updates, and user profiles. Built with React, Vite, Firebase Realtime Database, and Chart.js, this platform ensures seamless interaction for both voters and administrators.",
+            description: "A web app for community voting, logistics, news, and user profiles using Firebase Realtime Database.",
             position: "left",
             image: "https://res.cloudinary.com/diyl4omcs/image/upload/v1750332634/Screenshot_2025-06-19_165742_zhm3m4.png",
             github: "https://github.com/Sanju-Burman/Local-Democracy-Engagement-Platform",
-            deploy: "https://neighbourgov.netlify.app/"
+            deploy: "https://neighbourgov.netlify.app/",
+            techStack: ["React", "Vite", "Firebase"]
         }
-        // {
-        //     title: "Task Manager",
-        //     date: "January 2025",
-        //     description: "JWT-authenticated app with user roles and notifications.",
-        //     position: "right",
-        //     image: "https://via.placeholder.com/600x300?text=Task+Manager",
-        //     github: "https://github.com/Sanju-Burman/Loan-Application-System",
-        //     deploy: "https://taskmanager.io"
-        // },
     ]);
-
-    // useEffect(() => {
-    //     fetch("http://localhost:5000/api/projects")
-    //         .then(res => res.json())
-    //         .then(data => setProjects(data))
-    //         .catch(err => console.error("Error fetching projects:", err));
-    // }, []);
 
     return (
         <div className="projects-body section" id="projects">
@@ -63,6 +50,13 @@ const Projects = () => {
                             <h2>{project.title}</h2>
                             <small>{project.date}</small>
                             <span>{project.description}</span>
+
+                            <div className="tech-stack">
+                                {project.techStack.map((tech, i) => (
+                                    <span key={i} className="tech-item">{tech}</span>
+                                ))}
+                            </div>
+
                             <div className="project-links">
                                 <a href={project.github} target="_blank" rel="noopener noreferrer" className="github-link">
                                     <FaGithub />

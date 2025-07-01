@@ -10,6 +10,7 @@
 } */
 /* Universal selector */
 * {
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,7 +20,6 @@
 
 /* Default body font */
 body {
-    font-family: 'Inter', sans-serif;
     background: linear-gradient(to top left, #fffafa, #fffbeb);
     color: rgb(0, 0, 0);
     scroll-behavior: smooth;
@@ -28,11 +28,11 @@ body {
 
 /* Dark theme */
 body.dark-theme {
-    font-family: 'Inter', sans-serif;
+    /* font-family: 'Inter', sans-serif; */
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     background-image:
-        radial-gradient(white 1px, transparent 1px),
-        radial-gradient(white 1px, transparent 1px);
+        radial-gradient(rgb(57, 35, 35) 1px, transparent 1px),
+        radial-gradient(rgb(0, 0, 0) 1px, transparent 1px);
     background-position: 0 0, 25px 25px;
     background-size: 50px 50px;
     color: #ffffff;

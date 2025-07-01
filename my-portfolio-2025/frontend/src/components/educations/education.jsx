@@ -39,7 +39,7 @@ const [educations,setEducations] = useState([
 
     return (
         <div className="education section" id="education">
-            <h2 className="heading">Educations</h2>
+            <h2 className="heading">Education</h2>
             <div className="educations-timeline">
                 {educations.map((item, index) => (
                     <div key={index} className={`timeline-container ${item.position}`}>

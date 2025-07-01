@@ -1,6 +1,12 @@
 import './navbar.css';
 import { useEffect, useState } from 'react';
-import { FaUser, FaCode, FaProjectDiagram, FaGraduationCap, FaEnvelope, FaBars, FaTimes, /*FaSun, FaMoon*/ } from 'react-icons/fa';
+import {
+    FaUser, FaCode,
+    FaProjectDiagram,
+    FaGraduationCap,
+    FaEnvelope, FaBars, FaTimes,
+    // FaSun, FaMoon
+} from 'react-icons/fa';
 
 const Navbar = () => {
     const [activeSection, setActiveSection] = useState('home');
@@ -45,19 +51,21 @@ const Navbar = () => {
                     {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
                 </button>
                 <div className={`desktop-menu ${isMobileMenuOpen ? 'show-menu' : ''}`}>
-                    <a className={`desktop-list-item ${activeSection === 'home' ? 'active' : ''}`} href='#home'><FaUser title="About" /></a>
-                    <a className={`desktop-list-item ${activeSection === 'skills' ? 'active' : ''}`} href='#skills'><FaCode title="Skills" /></a>
-                    <a className={`desktop-list-item ${activeSection === 'projects' ? 'active' : ''}`} href='#projects'><FaProjectDiagram title="Projects" /></a>
-                    <a className={`desktop-list-item ${activeSection === 'education' ? 'active' : ''}`} href='#education'><FaGraduationCap title="Education" /></a>
+                    <a className={`desktop-list-item ${activeSection === 'home' ? 'active' : ''}`} href='#home'><FaUser title="About" />Home</a>
+                    <a className={`desktop-list-item ${activeSection === 'skills' ? 'active' : ''}`} href='#skills'><FaCode title="Skills" />Skills</a>
+                    <a className={`desktop-list-item ${activeSection === 'projects' ? 'active' : ''}`} href='#projects'><FaProjectDiagram title="Projects" />Projects</a>
+                    <a className={`desktop-list-item ${activeSection === 'education' ? 'active' : ''}`} href='#education'><FaGraduationCap title="Education" />Education</a>
                 </div>
                 <div className="navbar-actions">
                     <button className='desktop-menu-btn' onClick={scrollToContact} title="Contact">
                         <FaEnvelope />
                     </button>
-                    {/* <button className='theme-toggle' onClick={() => setDarkMode(!darkMode)} title="Toggle Theme">
-                        {darkMode ? <FaSun /> : <FaMoon />}
-                    </button> */}
                 </div>
+                {/* <div className="darkMode">
+                    <button className='theme-toggle' onClick={() => setDarkMode(!darkMode)} title="Toggle Theme">
+                        {darkMode ? <FaSun /> : <FaMoon />}
+                    </button>
+                </div> */}
             </nav>
         </header>
     );

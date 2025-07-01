@@ -2,7 +2,6 @@ import './home.css';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 // import { MdEmail } from 'react-icons/md';
 import profilePic from '../../assets/sanjuPic.png';
-import resume from '../../assets/Sanju_Burman.pdf';
 
 const Home = () => {
     return (
@@ -19,7 +18,7 @@ const Home = () => {
                         applications using React, Node.js, Express, and MongoDB. I love solving real-world
                         problems and transforming ideas into digital reality.
                     </p>
-                    <a href={resume} download className="home-resume-btn">
+                    <a href="https://drive.google.com/file/d/1sAO6Br4GErz6svTdRE7BlqV1Mo6HS-Ml/view?usp=sharing" target='_black' className="home-resume-btn">
                         Resume
                     </a>
                     <div className="home-socials">
