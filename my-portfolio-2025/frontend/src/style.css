@@ -1,14 +1,4 @@
-/* * {
-    height: auto;
-    width: auto;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    background: transparent;
-    font-family: 'Bebas Neue', 'Oswald', 'Platypi', sans-serif;
-} */
-/* Universal selector */
+/* Base Reset */
 * {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -16,38 +6,40 @@
     box-sizing: border-box;
     background: transparent;
     text-decoration: none;
+    transition: background 0.5s, color 0.5s, border 0.3s;
 }
 
-/* Default body font */
-body {
-    background: linear-gradient(to top left, #fffafa, #fffbeb);
-    color: rgb(0, 0, 0);
+html {
     scroll-behavior: smooth;
-    transition: background 0.5s, color 0.5s, font 0.3s;
 }
 
-/* Dark theme */
+body {
+    --bg-color: #ffffff;
+    --gradient-color: #fffbeb;
+    /* --gradient-color: #00ffc3; */
+    --text-color: #000;
+    --accent-color: orange;
+    --box-shadow-color: rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to top left, var(--bg-color), var(--gradient-color));
+    color: var(--text-color);
+    transition: background 0.5s, color 0.5s;
+}
+
 body.dark-theme {
-    /* font-family: 'Inter', sans-serif; */
-    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    --bg-color: #1b2735;
+    --gradient-color: #090a0f;
+    --text-color: #fff;
+    --accent-color: orange;
+    --box-shadow-color: rgba(255, 255, 255, 0.15);
+    background: radial-gradient(ellipse at bottom, var(--bg-color) 0%, var(--gradient-color) 100%);
     background-image:
         radial-gradient(rgb(57, 35, 35) 1px, transparent 1px),
         radial-gradient(rgb(0, 0, 0) 1px, transparent 1px);
     background-position: 0 0, 25px 25px;
     background-size: 50px 50px;
-    color: #ffffff;
+    color: var(--text-color);
 }
 
-h1,
-h2,
-h3,
-.heading {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-}
-
-
-/* Add twinkling star effect */
 body.dark-theme::before {
     content: "";
     position: fixed;
@@ -61,7 +53,25 @@ body.dark-theme::before {
     z-index: -1;
 }
 
+@keyframes twinkle {
+    0% {
+        transform: translateY(0);
+    }
 
+    100% {
+        transform: translateY(-100px);
+    }
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+.heading {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--text-color);
+}
 
 .heading {
     font-size: 2.5rem;
@@ -80,9 +90,7 @@ body.dark-theme::before {
     height: 3px;
     bottom: -10px;
     left: 0;
-    background-color: orange;
-    visibility: visible;
-    transform: scaleX(1);
+    background-color: var(--accent-color);
     transition: all 0.3s ease-in-out;
 }
 
@@ -90,6 +98,7 @@ body.dark-theme::before {
     transform: scaleX(1);
 }
 
+/* Sections */
 .section {
     width: 100vw;
     max-width: 75rem;
@@ -102,6 +111,7 @@ body.dark-theme::before {
     z-index: 1;
 }
 
+/* Timeline Containers */
 .timeline-container {
     display: flex;
     justify-content: flex-start;
@@ -113,19 +123,25 @@ body.dark-theme::before {
     justify-content: flex-end;
 }
 
+/* Cards */
 .text-box {
     border-radius: 1.5rem;
     padding: 1.5rem;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 16px var(--box-shadow-color);
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    transition: transform 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.85);
+    transition: transform 0.3s ease, background-color 0.5s;
+}
+
+body.dark-theme .text-box {
+    background-color: rgba(15, 23, 42, 0.85);
 }
 
 .text-box:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 10px 20px var(--box-shadow-color);
 }
 
 .text-box h2 {
@@ -137,7 +153,7 @@ body.dark-theme::before {
     font-size: 0.9rem;
 }
 
-/* Social Media Icons */
+/* Social Icons */
 .socials {
     display: flex;
     gap: 1rem;
@@ -156,10 +172,11 @@ body.dark-theme::before {
 
 .social-icon:hover {
     transform: scale(1.15);
-    background-color: orange;
+    background-color: var(--accent-color);
     color: black;
 }
 
+/* Responsive */
 @media (max-width: 820px) {
     .projects .education {
         width: 85%;
@@ -176,15 +193,5 @@ body.dark-theme::before {
 
     .timeline-container {
         justify-content: center;
-    }
-}
-
-@keyframes twinkle {
-    0% {
-        transform: translateY(0);
-    }
-
-    100% {
-        transform: translateY(-100px);
     }
 }

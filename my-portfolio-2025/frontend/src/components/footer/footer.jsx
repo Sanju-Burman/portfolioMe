@@ -9,15 +9,28 @@ const Footer = () => {
                 <h2>SB</h2>
             </div>
             <div className="socials">
-                <a href="https://www.linkedin.com/in/sanju-burman" target="_blank" rel="noopener noreferrer" className="social-icon">
+                <a
+                    href="https://www.linkedin.com/in/sanju-burman"
+                    target="_blank" rel="noopener noreferrer"
+                    className="social-icon"
+                >
 
                     <FaLinkedin />
                 </a>
-                <a href="https://github.com/Sanju-Burman" target="_blank" rel="noopener noreferrer" className="social-icon">
+                <a
+                    href="https://github.com/Sanju-Burman"
+                    target="_blank" rel="noopener noreferrer"
+                    className="social-icon"
+                >
                     <FaGithub />
                 </a>
 
             </div>
+            <div className="footer-contact">
+                <p>Email: sanjuburman01@gmail.com</p>
+                <p>Phone: +91-8085319797</p>
+            </div>
+
             <div className="footer-nav">
                 <a href="#home">About</a>
                 <a href="#skills">Skills</a>
