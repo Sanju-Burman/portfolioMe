@@ -1,11 +1,12 @@
 .footer {
-    background-color: #102136;
+    background-color: var(--footer-bg-color);
     padding: 2rem 1rem;
     text-align: center;
     position: relative;
     overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
-
 .footer-logo h2 {
     font-size: 2rem;
     font-weight: bold;

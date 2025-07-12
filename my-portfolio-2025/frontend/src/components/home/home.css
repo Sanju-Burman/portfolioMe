@@ -1,7 +1,6 @@
 /* Home Section Container */
 .home-section {
     min-height: calc(100vh - 5rem);
-    /* 5rem navbar height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,7 +53,7 @@
 .home-name {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: orange;
+    color: var(--accent-color);
 }
 
 .home-about {
@@ -66,8 +65,8 @@
 .home-resume-btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background-color: rgba(255, 216, 143, 0.662);
-    color: #1e1e1e;
+    background-color: var(--accent-color);
+    color: var(--text-color);
     font-weight: bold;
     border: none;
     border-radius: 0.5rem;
@@ -76,7 +75,7 @@
 }
 
 .home-resume-btn:hover {
-    background-color: #ffa500;
+    background-color: var(--accent-color);
     transform: translateY(-2px);
 }
 
@@ -89,8 +88,8 @@
 
 .home-social-icon {
     font-size: 1.8rem;
-    color: white;
-    background: #0f172a;
+    color: var(--gradient-color);
+    background: var(--text-color);
     padding: 0.6rem;
     border-radius: 50%;
     display: flex;
@@ -99,8 +98,8 @@
 
 .home-social-icon:hover {
     transform: scale(1.15);
-    background-color: orange;
-    color: black;
+    background-color: var(--accent-color);
+    color: var(--text-color);
 }
 
 /* Responsive */

@@ -29,14 +29,8 @@ export const ContactMe = () => {
 
     return (
         <section className="contact section" id="contact">
-            <h2 className="contact heading">Contact Me</h2>
+            <h2 className="contact heading">Share Your Thought 👇</h2>
             <div>
-                {/* <div className="contact-info">
-                    <h3>Email</h3>
-                    <p>sanjuburman01@gmail.com</p>
-                    <h3>Phone</h3>
-                    <p>+91-8085319797</p>
-                </div> */}
                 <div>
                     <form onSubmit={handleSubmit} className="contact-form">
                         <input type="text" name="name" placeholder="Enter Your Name" value={formData.name} onChange={handleChange} required />
