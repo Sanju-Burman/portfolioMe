@@ -1,21 +1,21 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import cors from 'cors';
-import connectDB from './config/db.js';
-import contactRoutes from './routes/contactRoutes.js';
-
-dotenv.config();
-connectDB();
+const express = require('express');
+const dotenv = require('dotenv');
+const cors = require('cors');
+const connectDB = require('./config/db.js');
+const userRoutes = require('./routes/user.routes.js');
+// const aboutRoutes = require('./routes/about.routes.js');
+// const contactRoutes = require('./routes/contact.routes.js');
 
 const app = express();
+dotenv.config();
+connectDB();
+const PORT = process.env.PORT || 5000;
+
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/contact', contactRoutes);
+app.use('/api/user', userRoutes);
+// app.use('/api/about', aboutRoutes);
+// app.use('/api/contact', contactRoutes);
 
-app.use((err, req, res, next) => {
-    res.status(500).json({ message: err.message });
-});
-
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
