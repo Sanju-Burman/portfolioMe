@@ -18,6 +18,8 @@ body {
     --bg-color: #ffffff;
     --gradient-color: #fbf4d9;
     --text-color: #000;
+    --error-color: #e65252b1;
+    --res-msg-color:#f98f05e0;
     --accent-color: orange;
     --footer-bg-color:#102136;
     --box-shadow-color: rgba(0, 0, 0, 0.3);
@@ -30,6 +32,8 @@ body {
     --bg-color: #1b2735;
     --gradient-color: #090a0f;
     --text-color: #fff;
+    --res-msg-color:#e65252b1;
+    --error-color: #e65252b1;
     --accent-color: orange;
     --footer-bg-color:rgba(59, 76, 85, 0.27);
     --box-shadow-color: rgba(255, 255, 255, 0.335);
