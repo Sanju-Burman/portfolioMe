@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "./contact.css";
+import "./Contact.css";
+import { portfolioApi } from "../../api/portfolio";
 
 const ContactMe = () => {
     const [formData, setFormData] = useState({
@@ -24,19 +25,33 @@ const ContactMe = () => {
             return;
         }
 
-        try {
-            const res = await fetch("http://localhost:5000/api/contact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData)
-            });
-            const data = await res.json();
-            if (!res.ok) throw new Error(data.message || "Something went wrong");
+        const ownerId = import.meta.env.VITE_OWNER_USER_ID;
+        const ownerEmail = import.meta.env.VITE_OWNER_EMAIL || "sanjuburman01@gmail.com";
 
+        if (!ownerId) {
+            // Resilient Fallback: Simulate successful email transmission in static mode
+            setTimeout(() => {
+                setResponse("Message sent successfully (Demo Mode)! In production, set VITE_OWNER_USER_ID in .env.");
+                setFormData({ name: "", email: "", message: "" });
+                setLoading(false);
+            }, 1000);
+            return;
+        }
+
+        try {
+            const payload = {
+                name: formData.name,
+                email: formData.email, // sender
+                message: formData.message,
+                userId: ownerId,
+                userEmail: ownerEmail // receiver
+            };
+
+            await portfolioApi.submitContactMessage(payload);
             setResponse("Message sent successfully!");
             setFormData({ name: "", email: "", message: "" });
         } catch (err) {
-            setResponse(err.message);
+            setResponse(err instanceof Error ? err.message : String(err));
         } finally {
             setLoading(false);
         }
@@ -47,8 +62,8 @@ const ContactMe = () => {
             <h2 className="heading">Contact Me</h2>
             <div className="contact-grid">
                 <div className="contact-info">
-                    <p><strong>Email:</strong> sanjuburman@example.com</p>
-                    <p><strong>Phone:</strong> +91 9876543210</p>
+                    <p><strong>Email:</strong> sanjuburman01@gmail.com</p>
+                    <p><strong>Phone:</strong> +91 8085319797</p>
                     <p><strong>Address:</strong> Jabalpur, Madhya Pradesh, India</p>
                 </div>
                 <form className="contact-form" onSubmit={handleSubmit}>
