@@ -6,17 +6,19 @@ const sendEmail = async ({ name, email, message, userEmail }) => {
     }
 
     const transporter = nodemailer.createTransport({
-        host: 'smtp.ethereal.email',
-        port: 587,
+        host: process.env.EMAIL_HOST || 'smtp.ethereal.email',
+        port: process.env.EMAIL_PORT || 587,
         auth: {
             user: process.env.AUTH_EMAIL,
             pass: process.env.AUTH_EMAIL_PASS
         }
     });
 
+    const receiverEmail = process.env.MY_RECEIVER_EMAIL || userEmail;
+    
     const mailOptions = {
         from: `Portfolio Contact <${process.env.AUTH_EMAIL}>`,
-        to: `${process.env.MY_RECEIVER_EMAIL},${userEmail}`,
+        to: `${receiverEmail},${userEmail}`,
         subject: 'New message from your portfolio',
         html: `
         <!DOCTYPE html>

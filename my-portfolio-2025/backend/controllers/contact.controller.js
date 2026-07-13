@@ -2,13 +2,28 @@
 const Contact = require('../models/Contact.js');
 const { sendEmail } = require('../utils/sendEmail.js');
 const asyncHandler = require("express-async-handler")
+const User = require('../models/User');
 
 const handleContact = asyncHandler(async (req, res) => {
-    const { name, email, message, userEmail, userId } = req.body;
+    let { name, email, message, userEmail, userId } = req.body;
 
-    // Basic validation
-    if (!name || !email || !message || !userEmail || !userId) {
-        return res.status(400).json({ success: false, message: 'All fields are required.' });
+    // Use default receiver email if not provided by frontend
+    if (!userEmail) {
+        userEmail = process.env.MY_RECEIVER_EMAIL;
+    }
+
+    // Try to lookup default admin user if userId is missing
+    if (!userId) {
+        const adminUser = await User.findOne({ role: 'admin' });
+        if (adminUser) {
+            userId = adminUser._id;
+        } else {
+             return res.status(400).json({ success: false, message: 'Admin user not found. Please provide userId.' });
+        }
+    }
+
+    if (!userEmail) {
+        return res.status(400).json({ success: false, message: 'No receiver email specified.' });
     }
 
     try {
