@@ -1,7 +1,10 @@
 .footer {
     background-color: var(--footer-bg-color);
-    padding: 2rem 1rem;
+    color: var(--text-color);
+    padding: 3rem 2rem;
     text-align: center;
+    border-top: 4px solid;
+    border-image: var(--accent-gradient) 1;
     position: relative;
     overflow: hidden;
     border-radius: 16px;
@@ -19,6 +22,13 @@
     justify-content: center;
     gap: 1.2rem;
     margin-bottom: 1rem;
+}
+
+.social-icon:hover {
+    color: var(--bg-color);
+    background: var(--accent-gradient);
+    transform: scale(1.2) translateY(-3px);
+    box-shadow: 0 5px 15px var(--box-shadow-color);
 }
 
 .footer-contact {

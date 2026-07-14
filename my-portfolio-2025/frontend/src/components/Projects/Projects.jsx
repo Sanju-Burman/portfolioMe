@@ -3,6 +3,7 @@ import "./Projects.css";
 import { useFetch } from '../../hooks/useFetch';
 import { portfolioApi } from '../../api/portfolio';
 import LoadingSpinner from '../ui/LoadingSpinner';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const fallbackProjects = [
     {
@@ -34,6 +35,41 @@ const fallbackProjects = [
     }
 ];
 
+const ProjectCard = ({ project, index }) => {
+    const position = index % 2 === 0 ? "left" : "right";
+    const revealRef = useScrollReveal(position);
+
+    return (
+        <div className={`timeline-container ${position}`} ref={revealRef}>
+            <div className="text-box">
+                <img src={project.image} alt={project.title} className="project-image" />
+                <h2>{project.title}</h2>
+                <small>{project.date}</small>
+                <span>{project.description}</span>
+
+                <div className="tech-stack">
+                    {project.techStack.map((tech, i) => (
+                        <span key={i} className="tech-item">{tech}</span>
+                    ))}
+                </div>
+
+                <div className="project-links">
+                    {project.github && (
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="github-link">
+                            <FaGithub style={{ verticalAlign: 'middle', marginRight: '4px' }}/> Code
+                        </a>
+                    )}
+                    {project.deploy && (
+                        <a href={project.deploy} target="_blank" rel="noopener noreferrer" className="deploy-link">
+                            Live Demo
+                        </a>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const Projects = () => {
     const ownerId = import.meta.env.VITE_OWNER_USER_ID;
 
@@ -53,41 +89,9 @@ const Projects = () => {
         <div className="projects-body section" id="projects">
             <h2 className="heading">Projects</h2>
             <div className="projects-timeline">
-                {resolvedProjects.map((project, index) => {
-                    const position = index % 2 === 0 ? "left" : "right";
-                    return (
-                        <div
-                            key={index}
-                            className={`timeline-container ${position}`}
-                        >
-                            <div className="text-box">
-                                <img src={project.image} alt={project.title} className="project-image" />
-                                <h2>{project.title}</h2>
-                                <small>{project.date}</small>
-                                <span>{project.description}</span>
-
-                                <div className="tech-stack">
-                                    {project.techStack.map((tech, i) => (
-                                        <span key={i} className="tech-item">{tech}</span>
-                                    ))}
-                                </div>
-
-                                <div className="project-links">
-                                    {project.github && (
-                                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="github-link">
-                                            <FaGithub />
-                                        </a>
-                                    )}
-                                    {project.deploy && (
-                                        <a href={project.deploy} target="_blank" rel="noopener noreferrer" className="deploy-link">
-                                            Live Demo
-                                        </a>
-                                    )}
-                                </div>
-                            </div>
-                        </div>
-                    );
-                })}
+                {resolvedProjects.map((project, index) => (
+                    <ProjectCard key={index} project={project} index={index} />
+                ))}
             </div>
         </div>
     );

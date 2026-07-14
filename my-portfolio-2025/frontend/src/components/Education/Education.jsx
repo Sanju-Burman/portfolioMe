@@ -2,6 +2,7 @@ import "./Education.css";
 import { useFetch } from '../../hooks/useFetch';
 import { portfolioApi } from '../../api/portfolio';
 import LoadingSpinner from '../ui/LoadingSpinner';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const fallbackEducation = [
     {
@@ -20,6 +21,21 @@ const fallbackEducation = [
         institute: "Govt. Polytechnic College, Jabalpur"
     }
 ];
+
+const EducationCard = ({ item, index }) => {
+    const position = index % 2 === 0 ? "left" : "right";
+    const revealRef = useScrollReveal(position);
+
+    return (
+        <div className={`timeline-container ${position}`} ref={revealRef}>
+            <div className="education text-box">
+                <h2>{item.title}</h2>
+                <small>{item.duration}</small>
+                <span>{item.institute}</span>
+            </div>
+        </div>
+    );
+};
 
 const Education = () => {
     const ownerId = import.meta.env.VITE_OWNER_USER_ID;
@@ -40,18 +56,9 @@ const Education = () => {
         <div className="education section" id="education">
             <h2 className="heading">Education</h2>
             <div className="educations-timeline">
-                {resolvedEducation.map((item, index) => {
-                    const position = index % 2 === 0 ? "left" : "right";
-                    return (
-                        <div key={index} className={`timeline-container ${position}`}>
-                            <div className="education text-box">
-                                <h2>{item.title}</h2>
-                                <small>{item.duration}</small>
-                                <span>{item.institute}</span>
-                            </div>
-                        </div>
-                    );
-                })}
+                {resolvedEducation.map((item, index) => (
+                    <EducationCard key={index} item={item} index={index} />
+                ))}
             </div>
         </div>
     );

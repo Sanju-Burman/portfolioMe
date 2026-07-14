@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Contact.css";
 import { portfolioApi } from "../../api/portfolio";
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const ContactMe = () => {
     const [formData, setFormData] = useState({
@@ -57,8 +58,10 @@ const ContactMe = () => {
         }
     };
 
+    const revealUp = useScrollReveal('up');
+
     return (
-        <section className="section contact-section" id="contact">
+        <section className="section contact-section" id="contact" ref={revealUp}>
             <h2 className="heading">Contact Me</h2>
             <div className="contact-grid">
                 <div className="contact-info">
