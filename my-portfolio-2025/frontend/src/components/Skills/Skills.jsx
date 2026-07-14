@@ -3,9 +3,9 @@ import { TbBrandTypescript } from "react-icons/tb";
 import { SiMongodb, SiPostman, SiExpress } from "react-icons/si";
 import { BiLogoVisualStudio } from "react-icons/bi";
 import './Skills.css';
-import { useFetch } from '../../hooks/useFetch';
 import { portfolioApi } from '../../api/portfolio';
 import LoadingSpinner from '../ui/LoadingSpinner';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const iconMap = {
     "java": <FaJava />,
@@ -63,6 +63,32 @@ const categories = [
     { key: "tools", title: "Tools" }
 ];
 
+const SkillCard = ({ cat, items, index }) => {
+    const revealRef = useScrollReveal('bottom', index * 100);
+    
+    return (
+        <div className="skill-card" ref={revealRef}>
+            <h3 className="skill-category">{cat.title}</h3>
+            <div>
+                {items.map((skill, idx) => (
+                    <div key={idx} className="skill-item">
+                        <div className="skill-info">
+                            <div className="skill-icon">{getIcon(skill.name)}</div>
+                            <span className="text-lg">{skill.name}</span>
+                        </div>
+                        <div overflow="hidden" className="skill-bar">
+                            <div
+                                className="skill-bar-fill"
+                                style={{ '--target-width': `${skill.familiarity}%` }}
+                            />
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
 export default function Skills() {
     const ownerId = import.meta.env.VITE_OWNER_USER_ID;
 
@@ -87,27 +113,7 @@ export default function Skills() {
                     const items = resolvedSkills[cat.key] || [];
                     if (items.length === 0) return null;
 
-                    return (
-                        <div key={index} className="skill-card">
-                            <h3 className="skill-category">{cat.title}</h3>
-                            <div>
-                                {items.map((skill, idx) => (
-                                    <div key={idx} className="skill-item">
-                                        <div className="skill-info">
-                                            <div className="skill-icon">{getIcon(skill.name)}</div>
-                                            <span className="text-lg">{skill.name}</span>
-                                        </div>
-                                        <div overflow="hidden" className="skill-bar">
-                                            <div
-                                                className="skill-bar-fill"
-                                                style={{ width: `${skill.familiarity}%` }}
-                                            />
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    );
+                    return <SkillCard key={index} cat={cat} items={items} index={index} />;
                 })}
             </div>
         </div>

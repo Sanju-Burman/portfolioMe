@@ -21,6 +21,27 @@
     flex: 1;
     display: flex;
     justify-content: center;
+    position: relative;
+}
+
+.home-image-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 295px;
+    height: 295px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent 0%, var(--accent-color) 25%, transparent 50%, var(--accent-color) 75%, transparent 100%);
+    animation: rotateRing 8s linear infinite;
+    z-index: 0;
+}
+body.dark-theme .home-image-ring {
+    background: conic-gradient(from 0deg, transparent 0%, #00e5ff 25%, transparent 50%, #ff9900 75%, transparent 100%);
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.4);
+}
+@keyframes rotateRing {
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .home-image {
@@ -29,6 +50,8 @@
     object-fit: cover;
     border-radius: 50%;
     box-shadow: 0 10px 10px rgba(255, 111, 0, 0.3);
+    position: relative;
+    z-index: 1;
 }
 
 /* Text and Button */
@@ -65,18 +88,36 @@
 .home-resume-btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background-color: var(--accent-color);
-    color: var(--text-color);
+    background: var(--accent-gradient);
+    color: var(--bg-color);
     font-weight: bold;
     border: none;
     border-radius: 0.5rem;
     text-decoration: none;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-resume-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-20deg);
+    transition: all 0.5s ease;
+}
+
+.home-resume-btn:hover::before {
+    left: 150%;
 }
 
 .home-resume-btn:hover {
-    background-color: var(--accent-color);
     transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--box-shadow-color);
 }
 
 /* Social Media Icons */
@@ -97,9 +138,10 @@
 }
 
 .home-social-icon:hover {
-    transform: scale(1.15);
+    transform: scale(1.15) translateY(-3px);
     background-color: var(--accent-color);
-    color: var(--text-color);
+    color: var(--bg-color);
+    box-shadow: 0 5px 15px var(--box-shadow-color);
 }
 
 /* Responsive */

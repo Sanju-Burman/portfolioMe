@@ -5,6 +5,7 @@ import profilePic from '../../assets/sanjuPic.png';
 import { useFetch } from '../../hooks/useFetch';
 import { portfolioApi } from '../../api/portfolio';
 import LoadingSpinner from '../ui/LoadingSpinner';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const fallbackAbout = {
     name: "Sanju Burman",
@@ -39,14 +40,18 @@ const Home = () => {
     const image = about?.image || profilePic;
     const socials = { ...fallbackAbout.socials, ...about?.socials };
 
+    const revealLeft = useScrollReveal('left');
+    const revealRight = useScrollReveal('right');
+
     return (
         <section className="home-section section" id="home">
             <div className="home-container">
-                <div className="home-image-wrapper">
+                <div className="home-image-wrapper" ref={revealLeft}>
+                    <div className="home-image-ring"></div>
                     <img src={image} alt="Profile" className="home-image" />
                 </div>
 
-                <div className="home-content">
+                <div className="home-content" ref={revealRight}>
                     <h1 className="home-name">Hi, I&apos;m {name}</h1>
                     <p className="home-about">{aboutMe}</p>
                     {resumeLink && (
