@@ -29,16 +29,19 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 295px;
-    height: 295px;
+    width: 310px;
+    height: 310px;
     border-radius: 50%;
     background: conic-gradient(from 0deg, transparent 0%, var(--accent-color) 25%, transparent 50%, var(--accent-color) 75%, transparent 100%);
-    animation: rotateRing 8s linear infinite;
+    animation: rotateRing 12s linear infinite;
     z-index: 0;
+    opacity: 0.4;
+    filter: blur(15px);
 }
 body.dark-theme .home-image-ring {
-    background: conic-gradient(from 0deg, transparent 0%, #00e5ff 25%, transparent 50%, #ff9900 75%, transparent 100%);
-    box-shadow: 0 0 30px rgba(0, 229, 255, 0.4);
+    background: conic-gradient(from 0deg, transparent 0%, #00d2ff 25%, transparent 50%, #3a7bd5 75%, transparent 100%);
+    box-shadow: 0 0 40px rgba(0, 210, 255, 0.3);
+    opacity: 0.3;
 }
 @keyframes rotateRing {
     100% { transform: translate(-50%, -50%) rotate(360deg); }

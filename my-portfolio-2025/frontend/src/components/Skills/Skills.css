@@ -64,7 +64,7 @@ body.dark-theme .skill-category {
 .skill-bar-fill {
     height: 100%;
     border-radius: 50px;
-    background: linear-gradient(90deg, #00e5ff 0%, #ff9900 50%, #ffcc00 100%);
+    background: var(--accent-gradient);
     width: 0;
     transition: width 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }

@@ -127,9 +127,9 @@ body.dark-theme .logo-text {
 }
 
 .theme-toggle.dark {
-    border-color: #00e5ff;
-    color: #00e5ff;
-    box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+    border-color: #00d2ff;
+    color: #00d2ff;
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
 }
 
 .toggle-icon-wrapper {

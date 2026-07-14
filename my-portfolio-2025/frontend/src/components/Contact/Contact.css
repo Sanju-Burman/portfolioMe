@@ -53,7 +53,7 @@ body.dark-theme .contact-form textarea {
 .contact-form textarea:focus {
     outline: none;
     border-color: var(--accent-color);
-    box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
 }
 
 .contact-form button {
