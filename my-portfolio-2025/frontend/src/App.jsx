@@ -10,6 +10,7 @@ function App() {
   return (
     <>
       <div className='App'>
+        <div className="shooting-star"></div>
         <Navbar />
         <Home />
         <Skills />
