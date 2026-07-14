@@ -6,19 +6,19 @@ import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const fallbackEducation = [
     {
-        title: "Software Development",
-        duration: "Present",
-        institute: "Masai School, Bangalore"
+        title: "Full-Stack Software Development Program",
+        duration: "2024 - 2025",
+        institute: "Masai School, Bangalore, Karnataka"
     },
     {
-        title: "B.Tech",
+        title: "B.Tech in Computer Science & Engineering",
         duration: "2020 - 2023",
-        institute: "Shree Ram Institute of Science and Technology, Jabalpur"
+        institute: "Shri Ram Institute of Science and Technology, Jabalpur, Madhya Pradesh"
     },
     {
-        title: "Polytechnic Diploma",
+        title: "Diploma in Computer Science & Engineering",
         duration: "2017 - 2020",
-        institute: "Govt. Polytechnic College, Jabalpur"
+        institute: "Govt. Kalaniketan Polytechnic College, Jabalpur, Madhya Pradesh"
     }
 ];
 

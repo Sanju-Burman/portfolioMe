@@ -9,7 +9,7 @@ import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const fallbackAbout = {
     name: "Sanju Burman",
-    aboutMe: "I'm a passionate Full Stack Developer specializing in building high-quality web applications using React, Node.js, Express, and MongoDB. I love solving real-world problems and transforming ideas into digital reality.",
+    aboutMe: "Full Stack Software Developer with a focus on Java and JavaScript and experience in creating highly available backend services, APIs, and web applications. Excellent skills in designing fault-tolerant systems, engineering payment gateway workflows, and working within a hardware and software ecosystem. Passionate about problem-solving using proper architecture and offline-first databases.",
     resumeLink: "https://drive.google.com/file/d/1sAO6Br4GErz6svTdRE7BlqV1Mo6HS-Ml/view?usp=sharing",
     image: profilePic,
     socials: {

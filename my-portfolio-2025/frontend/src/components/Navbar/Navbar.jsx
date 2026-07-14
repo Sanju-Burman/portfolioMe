@@ -1,7 +1,7 @@
 import './Navbar.css';
 import { useEffect, useState } from 'react';
 import {
-    FaUser, FaCode, FaProjectDiagram, FaGraduationCap,
+    FaUser, FaCode, FaProjectDiagram, FaGraduationCap, FaBriefcase,
     FaBars, FaTimes,
     FaSun, FaMoon
 } from 'react-icons/fa';
@@ -20,7 +20,7 @@ const Navbar = () => {
             } else {
                 setScrolled(false);
             }
-            const sections = ['home', 'skills', 'projects', 'education', 'contact'];
+            const sections = ['home', 'skills', 'projects', 'experience', 'education', 'contact'];
             const scrollPos = window.scrollY + window.innerHeight / 2;
             for (const id of sections) {
                 const el = document.getElementById(id);
@@ -47,6 +47,7 @@ const Navbar = () => {
                     <a className={`desktop-list-item ${activeSection === 'home' ? 'active' : ''}`} href='#home'><FaUser title="About" /> Home</a>
                     <a className={`desktop-list-item ${activeSection === 'skills' ? 'active' : ''}`} href='#skills'><FaCode title="Skills" /> Skills</a>
                     <a className={`desktop-list-item ${activeSection === 'projects' ? 'active' : ''}`} href='#projects'><FaProjectDiagram title="Projects" /> Projects</a>
+                    <a className={`desktop-list-item ${activeSection === 'experience' ? 'active' : ''}`} href='#experience'><FaBriefcase title="Experience" /> Experience</a>
                     <a className={`desktop-list-item ${activeSection === 'education' ? 'active' : ''}`} href='#education'><FaGraduationCap title="Education" /> Education</a>
                 </div>
                 <div className="navbar-actions">
