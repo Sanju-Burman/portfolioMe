@@ -29,26 +29,32 @@ Welcome to my professional portfolio website! This project showcases my skills, 
 
 ## 📁 Project Structure
 
-src/
+frontend/src/
+├── api/
 ├── components/
-│ ├── Navbar.jsx
-│ ├── Home.jsx
-│ ├── Skills.jsx
-│ ├── Projects.jsx
-│ ├── Education.jsx
-│ ├── ContactMe.jsx
-│ └── Footer.jsx
+│ ├── Navbar/
+│ ├── Home/
+│ ├── Skills/
+│ ├── Projects/
+│ ├── Education/
+│ ├── Contact/
+│ └── Footer/
 ├── assets/
 ├── styles/
+├── hooks/
+├── context/
 ├── App.jsx
 └── main.jsx
 
-server/
+backend/
+├── config/
+├── controllers/
+├── middleware/
 ├── models/
 ├── routes/
-├── controllers/
-├── config/
-└── index.js
+├── utils/
+├── validators/
+└── server.js
 
 ---
 
@@ -59,36 +65,47 @@ To get a local copy up and running, follow these simple steps:
 1.  **Clone the repository:**
 
     ```bash
-    git clone [https://github.com/Sanju-Burman/my-portfolio-2025.git](https://github.com/Sanju-Burman/my-portfolio-2025.git)
-    cd my-portfolio-2025
+    git clone https://github.com/Sanju-Burman/portfolioMe.git
+    cd portfolioMe
     ```
 
-2.  **Install frontend dependencies:**
+2.  **Install all dependencies (frontend & backend):**
 
     ```bash
-    npm install
-    npm run dev
+    npm run install:all
     ```
 
-3.  **Install backend dependencies and run the server:**
+3.  **Run the application concurrently:**
 
     ```bash
-    cd server
-    npm install
     npm run dev
     ```
 
 ---
 
-## 📬 Environment Variables (Backend)
+## 📬 Environment Variables
 
-Create a `.env` file in the `server` folder with the following variables:
+Create a `.env` file in the `backend` folder (you can copy `backend/.env.example`):
 
 ```env
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
-EMAIL_USER=your_email@example.com
-EMAIL_PASS=your_email_app_password
+AUTH_EMAIL=your_smtp_email@example.com
+AUTH_EMAIL_PASS=your_smtp_app_password
+EMAIL_HOST=smtp.ethereal.email
+EMAIL_PORT=587
+MY_RECEIVER_EMAIL=your_personal_email@example.com
+JWT_SECRET=your_super_secret_jwt_key
+CLIENT_ORIGIN=http://localhost:5173
+NODE_ENV=development
+```
+
+Create a `.env` file in the `frontend` folder:
+
+```env
+VITE_API_BASE_URL=http://localhost:5000
+VITE_OWNER_USER_ID=your_mongodb_admin_user_id
+VITE_OWNER_EMAIL=your_personal_email@example.com
 ```
 ---
 ## 📄 Resume

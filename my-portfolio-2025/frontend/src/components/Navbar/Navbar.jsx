@@ -1,8 +1,8 @@
-import './navbar.css';
+import './Navbar.css';
 import { useEffect, useState } from 'react';
 import {
     FaUser, FaCode, FaProjectDiagram, FaGraduationCap,
-    FaEnvelope, FaBars, FaTimes,
+    FaBars, FaTimes,
     FaSun, FaMoon
 } from 'react-icons/fa';
 import { useTheme } from '../../context/ThemeContext';
@@ -27,13 +27,6 @@ const Navbar = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
-
-    const scrollToContact = () => {
-        const contactSection = document.getElementById("contact");
-        if (contactSection) {
-            contactSection.scrollIntoView({ behavior: "smooth" });
-        }
-    };
 
     return (
         <header className='header'>

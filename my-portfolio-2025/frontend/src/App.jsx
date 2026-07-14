@@ -1,21 +1,17 @@
-// import { useState } from 'react'
-import Navbar from './components/navbars/navbar'
-// import Intro from './components/intro/intro'
-import Skills from './components/skills/skills'
-import Education from './components/educations/education'
-import Projects from './components/projects/projects'
-import Footer from './components/footer/footer'
-import { ContactMe } from './components/contact/ContactMe'
-import Home from './components/home/Home'
-function App() {
-  // const [count, setCount] = useState(0)
+import Navbar from './components/Navbar/Navbar'
+import Skills from './components/Skills/Skills'
+import Education from './components/Education/Education'
+import Projects from './components/Projects/Projects'
+import Footer from './components/Footer/Footer'
+import Home from './components/Home/Home'
+import ContactMe from './components/Contact/ContactMe'
 
+function App() {
   return (
     <>
       <div className='App'>
         <Navbar />
         <Home />
-        {/* <Intro /> */}
         <Skills />
         <Projects />
         <Education />
