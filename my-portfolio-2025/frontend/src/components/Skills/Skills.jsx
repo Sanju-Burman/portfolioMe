@@ -3,6 +3,7 @@ import { TbBrandTypescript } from "react-icons/tb";
 import { SiMongodb, SiPostman, SiExpress } from "react-icons/si";
 import { BiLogoVisualStudio } from "react-icons/bi";
 import './Skills.css';
+import { useFetch } from '../../hooks/useFetch';
 import { portfolioApi } from '../../api/portfolio';
 import LoadingSpinner from '../ui/LoadingSpinner';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
