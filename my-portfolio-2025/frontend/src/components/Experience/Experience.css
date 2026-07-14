@@ -71,13 +71,12 @@ body.dark-theme .experience.text-box:hover {
 
 @media (max-width: 820px) {
     .experience-timeline::before {
-        left: 20px;
+        left: 0;
     }
 }
 
 @media (max-width: 480px) {
     .experience.text-box {
         padding: 1.5rem;
-        width: 100%;
     }
 }

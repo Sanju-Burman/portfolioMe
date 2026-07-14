@@ -44,11 +44,11 @@ const Navbar = () => {
                     {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
                 </button>
                 <div className={`desktop-menu ${isMobileMenuOpen ? 'show-menu' : ''}`}>
-                    <a className={`desktop-list-item ${activeSection === 'home' ? 'active' : ''}`} href='#home'><FaUser title="About" /> Home</a>
-                    <a className={`desktop-list-item ${activeSection === 'skills' ? 'active' : ''}`} href='#skills'><FaCode title="Skills" /> Skills</a>
-                    <a className={`desktop-list-item ${activeSection === 'projects' ? 'active' : ''}`} href='#projects'><FaProjectDiagram title="Projects" /> Projects</a>
-                    <a className={`desktop-list-item ${activeSection === 'experience' ? 'active' : ''}`} href='#experience'><FaBriefcase title="Experience" /> Experience</a>
-                    <a className={`desktop-list-item ${activeSection === 'education' ? 'active' : ''}`} href='#education'><FaGraduationCap title="Education" /> Education</a>
+                    <a className={`desktop-list-item ${activeSection === 'home' ? 'active' : ''}`} href='#home' onClick={() => setIsMobileMenuOpen(false)}><FaUser title="About" /> Home</a>
+                    <a className={`desktop-list-item ${activeSection === 'skills' ? 'active' : ''}`} href='#skills' onClick={() => setIsMobileMenuOpen(false)}><FaCode title="Skills" /> Skills</a>
+                    <a className={`desktop-list-item ${activeSection === 'projects' ? 'active' : ''}`} href='#projects' onClick={() => setIsMobileMenuOpen(false)}><FaProjectDiagram title="Projects" /> Projects</a>
+                    <a className={`desktop-list-item ${activeSection === 'experience' ? 'active' : ''}`} href='#experience' onClick={() => setIsMobileMenuOpen(false)}><FaBriefcase title="Experience" /> Experience</a>
+                    <a className={`desktop-list-item ${activeSection === 'education' ? 'active' : ''}`} href='#education' onClick={() => setIsMobileMenuOpen(false)}><FaGraduationCap title="Education" /> Education</a>
                 </div>
                 <div className="navbar-actions">
                     <button className={`theme-toggle ${darkMode ? 'dark' : 'light'}`} onClick={toggleTheme} title="Toggle Theme">
