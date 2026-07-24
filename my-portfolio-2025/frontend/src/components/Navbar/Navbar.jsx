@@ -1,7 +1,7 @@
 import './Navbar.css';
 import { useEffect, useState } from 'react';
 import {
-    FaUser, FaCode, FaProjectDiagram, FaGraduationCap,
+    FaUser, FaCode, FaProjectDiagram, FaGraduationCap, FaBriefcase,
     FaBars, FaTimes,
     FaSun, FaMoon
 } from 'react-icons/fa';
@@ -10,11 +10,17 @@ import { useTheme } from '../../context/ThemeContext';
 const Navbar = () => {
     const [activeSection, setActiveSection] = useState('home');
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const { darkMode, toggleTheme } = useTheme();
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = ['home', 'skills', 'projects', 'education', 'contact'];
+            if (window.scrollY > 20) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+            const sections = ['home', 'skills', 'projects', 'experience', 'education', 'contact'];
             const scrollPos = window.scrollY + window.innerHeight / 2;
             for (const id of sections) {
                 const el = document.getElementById(id);
@@ -29,24 +35,26 @@ const Navbar = () => {
     }, []);
 
     return (
-        <header className='header'>
+        <header className={`header ${scrolled ? 'scrolled' : ''}`}>
             <nav className="navbar">
-                <a className="logo" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>SB</a>
+                <a className="logo" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+                    <span className="logo-text">SB</span>
+                </a>
                 <button className="hamburger" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                     {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
                 </button>
                 <div className={`desktop-menu ${isMobileMenuOpen ? 'show-menu' : ''}`}>
-                    <a className={`desktop-list-item ${activeSection === 'home' ? 'active' : ''}`} href='#home'><FaUser title="About" /> Home</a>
-                    <a className={`desktop-list-item ${activeSection === 'skills' ? 'active' : ''}`} href='#skills'><FaCode title="Skills" /> Skills</a>
-                    <a className={`desktop-list-item ${activeSection === 'projects' ? 'active' : ''}`} href='#projects'><FaProjectDiagram title="Projects" /> Projects</a>
-                    <a className={`desktop-list-item ${activeSection === 'education' ? 'active' : ''}`} href='#education'><FaGraduationCap title="Education" /> Education</a>
+                    <a className={`desktop-list-item ${activeSection === 'home' ? 'active' : ''}`} href='#home' onClick={() => setIsMobileMenuOpen(false)}><FaUser title="About" /> Home</a>
+                    <a className={`desktop-list-item ${activeSection === 'skills' ? 'active' : ''}`} href='#skills' onClick={() => setIsMobileMenuOpen(false)}><FaCode title="Skills" /> Skills</a>
+                    <a className={`desktop-list-item ${activeSection === 'projects' ? 'active' : ''}`} href='#projects' onClick={() => setIsMobileMenuOpen(false)}><FaProjectDiagram title="Projects" /> Projects</a>
+                    <a className={`desktop-list-item ${activeSection === 'experience' ? 'active' : ''}`} href='#experience' onClick={() => setIsMobileMenuOpen(false)}><FaBriefcase title="Experience" /> Experience</a>
+                    <a className={`desktop-list-item ${activeSection === 'education' ? 'active' : ''}`} href='#education' onClick={() => setIsMobileMenuOpen(false)}><FaGraduationCap title="Education" /> Education</a>
                 </div>
                 <div className="navbar-actions">
-                    {/* <button className='desktop-menu-btn' onClick={scrollToContact} title="Contact">
-                        <FaEnvelope />
-                    </button> */}
-                    <button className='theme-toggle' onClick={toggleTheme} title="Toggle Theme">
-                        {darkMode ? <FaSun /> : <FaMoon />}
+                    <button className={`theme-toggle ${darkMode ? 'dark' : 'light'}`} onClick={toggleTheme} title="Toggle Theme">
+                        <span className="toggle-icon-wrapper">
+                            {darkMode ? <FaMoon /> : <FaSun />}
+                        </span>
                     </button>
                 </div>
             </nav>

@@ -20,9 +20,14 @@
     font-size: 1rem;
 }
 
+@media (max-width: 820px) {
+    .educations-timeline::before {
+        left: 0;
+    }
+}
+
 @media (max-width: 480px) {
     .education.text-box {
         padding: 1rem;
-        width: 90%;
     }
 }
