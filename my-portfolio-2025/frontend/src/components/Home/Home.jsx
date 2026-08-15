@@ -10,7 +10,7 @@ import { useScrollReveal } from '../../hooks/useScrollReveal';
 const fallbackAbout = {
     name: "Sanju Burman",
     aboutMe: "Full Stack Software Developer with a focus on Java and JavaScript and experience in creating highly available backend services, APIs, and web applications. Excellent skills in designing fault-tolerant systems, engineering payment gateway workflows, and working within a hardware and software ecosystem. Passionate about problem-solving using proper architecture and offline-first databases.",
-    resumeLink: "https://drive.google.com/file/d/1sAO6Br4GErz6svTdRE7BlqV1Mo6HS-Ml/view?usp=sharing",
+    resumeLink: "https://drive.google.com/file/d/1sAO6Br4GErz6svTdRE7BlqV1Mo6HS-Ml/view?usp=sharinghttps://drive.google.com/file/d/1I_7eAiV5k8iefWmSl4o9v6VWJCtPXMnl/view?usp=drive_link",
     image: profilePic,
     socials: {
         linkedin: "https://www.linkedin.com/in/sanju-burman",
@@ -22,7 +22,7 @@ const fallbackAbout = {
 
 const Home = () => {
     const ownerId = import.meta.env.VITE_OWNER_USER_ID;
-    
+
     // fetchAbout only if ownerId is defined, otherwise fallback to local mock data immediately
     const { data: about, loading } = useFetch(
         () => ownerId ? portfolioApi.fetchAbout(ownerId) : Promise.reject('No VITE_OWNER_USER_ID configured'),
