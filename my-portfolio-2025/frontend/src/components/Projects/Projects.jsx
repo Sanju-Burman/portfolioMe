@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { 
-    FaGithub, 
-    FaExternalLinkAlt, 
-    FaChevronLeft, 
-    FaChevronRight, 
-    FaCalendarAlt, 
+import {
+    FaGithub,
+    FaExternalLinkAlt,
+    FaChevronLeft,
+    FaChevronRight,
+    FaCalendarAlt,
     FaCode,
     FaCheckCircle,
     FaRocket
@@ -29,9 +29,9 @@ const fallbackProjects = [
         ],
         image: "https://res.cloudinary.com/diyl4omcs/image/upload/v1750332631/Screenshot_2025-06-19_165713_fypid6.png",
         images: [
-            "https://res.cloudinary.com/diyl4omcs/image/upload/v1750332631/Screenshot_2025-06-19_165713_fypid6.png",
-            "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1000&q=80",
-            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80"
+            "https://res.cloudinary.com/diyl4omcs/image/upload/v1787457353/yatra_image1_tqp8w5.webp",
+            "https://res.cloudinary.com/diyl4omcs/image/upload/v1787457353/yatra_image2_lzxsdn.webp",
+            "https://res.cloudinary.com/diyl4omcs/image/upload/v1787457353/yatra_image3_fkbhal.webp"
         ],
         github: "https://github.com/Sanju-Burman/happy-yatra",
         deploy: "https://happyyatra.netlify.app/",
@@ -56,8 +56,7 @@ const fallbackProjects = [
         image: "https://res.cloudinary.com/diyl4omcs/image/upload/v1750332634/Screenshot_2025-06-19_165742_zhm3m4.png",
         images: [
             "https://res.cloudinary.com/diyl4omcs/image/upload/v1750332634/Screenshot_2025-06-19_165742_zhm3m4.png",
-            "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=1000&q=80",
-            "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1000&q=80"
+            "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=1000&q=80"
         ],
         github: "https://github.com/Sanju-Burman/Local-Democracy-Engagement-Platform",
         deploy: "https://neighbourgov.netlify.app/",
@@ -81,9 +80,9 @@ const fallbackProjects = [
         ],
         image: "https://res.cloudinary.com/diyl4omcs/image/upload/v1750332631/Screenshot_2025-06-19_165607_trrswx.png",
         images: [
-            "https://res.cloudinary.com/diyl4omcs/image/upload/v1750332631/Screenshot_2025-06-19_165607_trrswx.png",
-            "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1000&q=80",
-            "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1000&q=80"
+            "https://res.cloudinary.com/diyl4omcs/image/upload/v1787456548/portfolio_image1_siknmi.webp",
+            "https://res.cloudinary.com/diyl4omcs/image/upload/v1787456548/portfolio_image2_o79nsp.webp",
+            "https://res.cloudinary.com/diyl4omcs/image/upload/v1787456547/portfolio_image3_aowrbu.webp"
         ],
         github: "https://github.com/Sanju-Burman/portfolioMe/tree/main/my-portfolio-2025/frontend",
         deploy: "https://portfolio-me-lilac-eta.vercel.app/",
@@ -194,7 +193,7 @@ const Projects = () => {
             {/* SECTION 2: SELECTED PROJECT DETAILS (SPLIT VIEW) */}
             <div className="project-details-card" ref={detailsRevealRef}>
                 <div className="project-details-grid">
-                    
+
                     {/* LEFT SIDE: IMAGE CAROUSEL */}
                     <div className="carousel-column">
                         <div className="carousel-frame">
@@ -206,15 +205,15 @@ const Projects = () => {
 
                             {imageList.length > 1 && (
                                 <>
-                                    <button 
-                                        className="carousel-arrow carousel-arrow-left" 
+                                    <button
+                                        className="carousel-arrow carousel-arrow-left"
                                         onClick={handlePrevImage}
                                         aria-label="Previous Slide"
                                     >
                                         <FaChevronLeft />
                                     </button>
-                                    <button 
-                                        className="carousel-arrow carousel-arrow-right" 
+                                    <button
+                                        className="carousel-arrow carousel-arrow-right"
                                         onClick={handleNextImage}
                                         aria-label="Next Slide"
                                     >
@@ -240,9 +239,9 @@ const Projects = () => {
                             {/* Progress bar pulse */}
                             {imageList.length > 1 && (
                                 <div className="carousel-progress-bar-container">
-                                    <div 
-                                        key={`${selectedIndex}-${currentImageIndex}`} 
-                                        className="carousel-progress-bar-fill" 
+                                    <div
+                                        key={`${selectedIndex}-${currentImageIndex}`}
+                                        className="carousel-progress-bar-fill"
                                     />
                                 </div>
                             )}
