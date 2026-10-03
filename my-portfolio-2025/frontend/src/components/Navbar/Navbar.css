@@ -8,6 +8,7 @@
 
 .header.scrolled {
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     background-color: var(--navbar-bg-color);
     box-shadow: 0 4px 20px var(--box-shadow-color);
 }
