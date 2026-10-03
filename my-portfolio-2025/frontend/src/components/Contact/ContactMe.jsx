@@ -32,10 +32,10 @@ const ContactMe = () => {
         if (!ownerId) {
             // Resilient Fallback: Simulate successful email transmission in static mode
             setTimeout(() => {
-                setResponse("Message sent successfully (Demo Mode)! In production, set VITE_OWNER_USER_ID in .env.");
+                setResponse("Thank you for reaching out! You can also connect directly via sanjuburman01@gmail.com.");
                 setFormData({ name: "", email: "", message: "" });
                 setLoading(false);
-            }, 1000);
+            }, 800);
             return;
         }
 
@@ -49,7 +49,7 @@ const ContactMe = () => {
             };
 
             await portfolioApi.submitContactMessage(payload);
-            setResponse("Message sent successfully!");
+            setResponse("Message sent successfully! I will respond promptly.");
             setFormData({ name: "", email: "", message: "" });
         } catch (err) {
             setResponse(err instanceof Error ? err.message : String(err));
@@ -62,18 +62,22 @@ const ContactMe = () => {
 
     return (
         <section className="section contact-section" id="contact" ref={revealUp}>
-            <h2 className="heading">Contact Me</h2>
+            <h2 className="heading">Get In Touch</h2>
             <div className="contact-grid">
                 <div className="contact-info">
-                    <p><strong>Email:</strong> sanjuburman01@gmail.com</p>
-                    <p><strong>Phone:</strong> +91 8085319797</p>
-                    <p><strong>Address:</strong> Jabalpur, Madhya Pradesh, India</p>
+                    <p><strong>Email:</strong> <a href="mailto:sanjuburman01@gmail.com">sanjuburman01@gmail.com</a></p>
+                    <p><strong>Phone:</strong> <a href="tel:+918085319797">+91 8085319797</a></p>
+                    <p><strong>Location:</strong> Jabalpur, Madhya Pradesh, India</p>
+                    <p style={{ marginTop: '1rem', fontSize: '0.9rem', opacity: 0.8 }}>
+                        Available for Software Engineer, Backend Engineer, and Full-Stack roles.
+                    </p>
                 </div>
-                <form className="contact-form" onSubmit={handleSubmit}>
+                <form className="contact-form" onSubmit={handleSubmit} aria-label="Contact Form">
                     <input
                         type="text"
                         name="name"
                         placeholder="Your name"
+                        aria-label="Your Name"
                         value={formData.name}
                         onChange={handleChange}
                         required
@@ -82,6 +86,7 @@ const ContactMe = () => {
                         type="email"
                         name="email"
                         placeholder="Your email"
+                        aria-label="Your Email"
                         value={formData.email}
                         onChange={handleChange}
                         required
@@ -90,14 +95,15 @@ const ContactMe = () => {
                         name="message"
                         rows="6"
                         placeholder="Your message"
+                        aria-label="Your Message"
                         value={formData.message}
                         onChange={handleChange}
                         required
                     />
-                    <button type="submit" disabled={loading}>
+                    <button type="submit" disabled={loading} aria-label="Submit Contact Message">
                         {loading ? "Sending..." : "Send Message"}
                     </button>
-                    {response && <p className="response-msg">{response}</p>}
+                    {response && <p className="response-msg" role="status">{response}</p>}
                 </form>
             </div>
         </section>

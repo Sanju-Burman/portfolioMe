@@ -1,7 +1,6 @@
-import { FaJs, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaNpm, FaJava, FaCode } from "react-icons/fa";
-import { TbBrandTypescript } from "react-icons/tb";
-import { SiMongodb, SiPostman, SiExpress } from "react-icons/si";
-import { BiLogoVisualStudio } from "react-icons/bi";
+import { FaJs, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaJava, FaCode, FaDocker, FaLinux, FaDatabase, FaCreditCard, FaNetworkWired } from "react-icons/fa";
+import { TbBrandTypescript, TbBrandGolang } from "react-icons/tb";
+import { SiMongodb, SiPostman, SiExpress, SiPostgresql, SiSqlite } from "react-icons/si";
 import './Skills.css';
 import { useFetch } from '../../hooks/useFetch';
 import { portfolioApi } from '../../api/portfolio';
@@ -12,6 +11,8 @@ const iconMap = {
     "java": <FaJava />,
     "javascript": <FaJs />,
     "typescript": <TbBrandTypescript />,
+    "go": <TbBrandGolang />,
+    "golang": <TbBrandGolang />,
     "react": <FaReact />,
     "html5": <FaHtml5 />,
     "html": <FaHtml5 />,
@@ -22,11 +23,17 @@ const iconMap = {
     "express": <SiExpress />,
     "express.js": <SiExpress />,
     "mongodb": <SiMongodb />,
-    "vs code": <BiLogoVisualStudio />,
-    "vscode": <BiLogoVisualStudio />,
+    "postgresql": <SiPostgresql />,
+    "postgres": <SiPostgresql />,
+    "sqlite": <SiSqlite />,
+    "docker": <FaDocker />,
+    "linux": <FaLinux />,
+    "sql": <FaDatabase />,
+    "payment gateways": <FaCreditCard />,
+    "offline-first sync": <FaNetworkWired />,
     "postman": <SiPostman />,
     "git": <FaGitAlt />,
-    "npm": <FaNpm />,
+    "git & github": <FaGitAlt />,
 };
 
 const getIcon = (name) => {
@@ -35,73 +42,70 @@ const getIcon = (name) => {
 
 const fallbackSkillsData = {
     programmingLanguages: [
-        { name: "Java", familiarity: 90 },
-        { name: "JavaScript", familiarity: 90 },
-        { name: "TypeScript", familiarity: 85 },
-        { name: "SQL", familiarity: 85 },
+        { name: "Go", level: "Intermediate" },
+        { name: "JavaScript", level: "Production" },
+        { name: "TypeScript", level: "Proficient" },
+        { name: "Java", level: "Core / DSA" },
+        { name: "SQL", level: "Proficient" },
     ],
     backend: [
-        { name: "Node.js", familiarity: 90 },
-        { name: "Express", familiarity: 90 },
-        { name: "REST API", familiarity: 90 },
-        { name: "Microservices", familiarity: 80 }
-    ],
-    frontend: [
-        { name: "React", familiarity: 90 },
-        { name: "Redux", familiarity: 85 },
-        { name: "HTML5", familiarity: 95 },
-        { name: "CSS3", familiarity: 90 },
-        { name: "QML", familiarity: 75 }
+        { name: "Node.js", level: "Production" },
+        { name: "Express.js", level: "Production" },
+        { name: "RESTful APIs", level: "Production" },
+        { name: "Payment Gateways", level: "Specialized" },
     ],
     databases: [
-        { name: "MongoDB", familiarity: 85 },
-        { name: "SQLite", familiarity: 85 },
-        { name: "MySQL", familiarity: 80 }
+        { name: "PostgreSQL", level: "Proficient" },
+        { name: "SQLite", level: "Production / WAL" },
+        { name: "MongoDB", level: "Proficient" }
     ],
     systems: [
-        { name: "Offline-first", familiarity: 90 },
-        { name: "Fault-tolerance", familiarity: 85 },
-        { name: "MQTT", familiarity: 80 }
+        { name: "Offline-First Sync", level: "Production" },
+        { name: "Hardware FSM", level: "Production" },
+        { name: "Fault Tolerance", level: "Production" },
+        { name: "QML / Embedded UI", level: "Production" }
     ],
     tools: [
-        { name: "Git", familiarity: 90 },
-        { name: "GitHub", familiarity: 90 },
-        { name: "Postman", familiarity: 85 },
-        { name: "Linux", familiarity: 80 },
-        { name: "VS Code", familiarity: 95 }
+        { name: "Docker", level: "Proficient" },
+        { name: "Git & GitHub", level: "Production" },
+        { name: "Linux / Bash", level: "Proficient" },
+        { name: "Postman", level: "Advanced" }
+    ],
+    frontend: [
+        { name: "React", level: "Advanced" },
+        { name: "Redux", level: "Proficient" },
+        { name: "HTML5 / CSS3", level: "Advanced" }
     ]
 };
 
 const categories = [
     { key: "programmingLanguages", title: "Languages" },
-    { key: "backend", title: "Backend" },
-    { key: "frontend", title: "Frontend" },
-    { key: "databases", title: "Databases" },
+    { key: "backend", title: "Backend & APIs" },
+    { key: "databases", title: "Databases & Storage" },
     { key: "systems", title: "Systems & Architecture" },
-    { key: "tools", title: "Tools & Platforms" }
+    { key: "tools", title: "DevOps & Infrastructure" },
+    { key: "frontend", title: "Frontend & UI" }
 ];
 
 const SkillCard = ({ cat, items, index }) => {
-    const revealRef = useScrollReveal('bottom', index * 100);
+    const revealRef = useScrollReveal('bottom', index * 80);
     
     return (
         <div className="skill-card" ref={revealRef}>
             <h3 className="skill-category">{cat.title}</h3>
-            <div>
-                {items.map((skill, idx) => (
-                    <div key={idx} className="skill-item">
-                        <div className="skill-info">
-                            <div className="skill-icon">{getIcon(skill.name)}</div>
-                            <span className="text-lg">{skill.name}</span>
+            <div className="skill-items-container">
+                {items.map((skill, idx) => {
+                    const badgeText = skill.level || (skill.familiarity >= 90 ? "Core" : skill.familiarity >= 85 ? "Advanced" : "Proficient");
+                    return (
+                        <div key={idx} className="skill-item">
+                            <div className="skill-info">
+                                <span className="skill-icon">{getIcon(skill.name)}</span>
+                                <span className="skill-name">{skill.name}</span>
+                            </div>
+                            <span className="skill-badge">{badgeText}</span>
                         </div>
-                        <div overflow="hidden" className="skill-bar">
-                            <div
-                                className="skill-bar-fill"
-                                style={{ '--target-width': `${skill.familiarity}%` }}
-                            />
-                        </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
         </div>
     );
@@ -120,12 +124,11 @@ export default function Skills() {
 
     if (loading) return <div className="skills section" id="skills"><LoadingSpinner /></div>;
 
-    // Merge backend skills data or use fallback
     const resolvedSkills = skillsData || fallbackSkillsData;
 
     return (
         <div className="skills section" id="skills">
-            <h2 className="heading">My Skills</h2>
+            <h2 className="heading">Technical Skills</h2>
             <div className="skills-grid">
                 {categories.map((cat, index) => {
                     const items = resolvedSkills[cat.key] || [];

@@ -7,14 +7,15 @@ import { useScrollReveal } from '../../hooks/useScrollReveal';
 const fallbackExperience = [
     {
         title: "Associate Software Developer",
-        company: "Reak Infotech LLP - Jabalpur, MP",
-        duration: "August 2025 - Present",
+        company: "Reak Infotech LLP — Jabalpur, MP",
+        duration: "August 2025 – Present",
         description: [
-            "Resolved major issues with multi-gateway payment integration (Paytm, JioPay, BharatPe) through the implementation of strict payload schemas and resilient retry mechanisms in JavaScript code, solving major issues in API synchronization bugs and processing more than 50,000+ in daily transactions.",
-            "Engineered robust state-guards in the QML/JavaScript dispensing logic, eliminating duplicate hardware signals and preventing false API sales reports during motor faults, effectively reducing incorrect manual refunds by 40%.",
-            "Built an offline-first refund system utilizing local SQLite storage and a background sync engine to reliably queue and push failed transactions to the server upon network reconnection, recovering 95% of previously lost offline refunds.",
-            "Refactored dispensing flows so that failed hardware items are isolated rather than canceling the entire transaction request, thus improving the reliability and overall success of the transaction process 15%."
-        ]
+            "Architected a unified payment abstraction layer integrating Paytm, JioPay, and BharatPe APIs, implementing strict JSON schema validation and resilient retry mechanisms that eliminated webhook race conditions across 50,000+ daily transactions.",
+            "Engineered a Finite State Machine (FSM) in QML/JavaScript for electro-mechanical dispensing control, debouncing raw sensor inputs and trapping motor-stall interrupts to eliminate duplicate trigger signals, cutting erroneous manual refund tickets by 40%.",
+            "Developed an offline-first transaction journal using local SQLite storage and an event-driven background sync worker; queued state transitions during connectivity dropouts and performed transactional batch reconciliation upon reconnect, recovering 95% of stranded refunds.",
+            "Refactored multi-item dispensing transactions from an all-or-nothing rollback model to granular item-level fault isolation, enabling partial order fulfillment with automatic ledger adjustments and raising checkout completion rates by 15%."
+        ],
+        techStack: ["Paytm / JioPay / BharatPe", "QML / JavaScript", "SQLite (Offline Sync)", "REST APIs", "Hardware FSM", "Event-Driven Queues"]
     }
 ];
 
@@ -34,6 +35,13 @@ const ExperienceCard = ({ item, index }) => {
                     </ul>
                 ) : (
                     <p>{item.description}</p>
+                )}
+                {item.techStack && (
+                    <div className="experience-tech-grid">
+                        {item.techStack.map((tech, i) => (
+                            <span key={i} className="experience-tech-chip">{tech}</span>
+                        ))}
+                    </div>
                 )}
             </div>
         </div>
