@@ -1,44 +1,50 @@
-/* Base Reset */
-* {
-    font-family: 'Inter', sans-serif;
+/* Base Reset & Optimization */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: transparent;
-    text-decoration: none;
-    transition: background 0.5s, color 0.5s, border 0.3s;
 }
 
 html {
     scroll-behavior: smooth;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: clip;
 }
 
 body {
-    --navbar-bg-color: rgba(255, 255, 255, 0.6);
-    --bg-color: #ffffff;
-    --gradient-color: #fbf4d9;
-    --text-color: #000;
-    --error-color: #e65252b1;
-    --res-msg-color: #f98f05e0;
-    --accent-color: #ff7b00;
-    --accent-gradient: linear-gradient(135deg, #ff9900, #ff5500);
-    --footer-bg-color: #102136;
-    --box-shadow-color: rgba(0, 0, 0, 0.15);
-    background: linear-gradient(to top left, var(--bg-color), var(--gradient-color));
+    --navbar-bg-color: rgba(255, 255, 255, 0.85);
+    --bg-color: #f8fafc;
+    --gradient-color: #eef2f6;
+    --text-color: #0f172a;
+    --text-muted: #64748b;
+    --error-color: #ef4444;
+    --res-msg-color: #f59e0b;
+    --accent-color: #0284c7;
+    --accent-gradient: linear-gradient(135deg, #0284c7, #2563eb);
+    --card-bg: rgba(255, 255, 255, 0.75);
+    --card-border: rgba(226, 232, 240, 0.8);
+    --footer-bg-color: #0f172a;
+    --box-shadow-color: rgba(15, 23, 42, 0.08);
+    background: linear-gradient(135deg, var(--bg-color), var(--gradient-color));
     color: var(--text-color);
+    min-height: 100vh;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .dark-theme {
-    --navbar-bg-color: rgba(10, 15, 25, 0.7);
+    --navbar-bg-color: rgba(10, 15, 25, 0.85);
     --bg-color: #080c16;
     --gradient-color: #030508;
-    --text-color: #ffffff;
-    --res-msg-color: #e65252b1;
-    --error-color: #e65252b1;
+    --text-color: #f8fafc;
+    --text-muted: #94a3b8;
+    --res-msg-color: #fbbf24;
+    --error-color: #f87171;
     --accent-color: #00d2ff;
     --accent-gradient: linear-gradient(135deg, #00d2ff, #3a7bd5);
-    --footer-bg-color: rgba(11, 16, 30, 0.8);
-    --box-shadow-color: rgba(0, 210, 255, 0.15);
+    --card-bg: rgba(15, 23, 42, 0.65);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --footer-bg-color: rgba(11, 16, 30, 0.95);
+    --box-shadow-color: rgba(0, 210, 255, 0.12);
     background: radial-gradient(ellipse at bottom, var(--bg-color) 0%, var(--gradient-color) 100%);
     color: var(--text-color);
 }
@@ -167,8 +173,7 @@ h3,
 
 /* Sections */
 .section {
-    width: 100vw;
-    /* min-height: calc(100vh - 5rem); */
+    width: 100%;
     max-width: 75rem;
     padding: 4rem 2rem;
     margin: auto;
@@ -177,6 +182,7 @@ h3,
     background-position: center;
     position: relative;
     z-index: 1;
+    scroll-margin-top: 5rem;
 }
 
 /* Timeline Containers */
@@ -259,17 +265,23 @@ h3,
     }
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
 /* Scroll Reveal Base Classes */
 .scroll-reveal {
     opacity: 0;
-    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    will-change: transform, opacity;
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .scroll-reveal.active {
     opacity: 1;
     transform: translate(0, 0) scale(1) !important;
 }
-.reveal-up { transform: translateY(50px); }
-.reveal-bottom { transform: translateY(-50px); }
-.reveal-left { transform: translateX(-50px); }
-.reveal-right { transform: translateX(50px); }
-.reveal-fade { transform: scale(0.95); }
+.reveal-up { transform: translateY(40px); }
+.reveal-bottom { transform: translateY(-40px); }
+.reveal-left { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+.reveal-fade { transform: scale(0.96); }
