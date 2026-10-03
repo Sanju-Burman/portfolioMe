@@ -23,9 +23,9 @@ const fallbackProjects = [
         date: "April 2025",
         icon: "🌴",
         description: [
-            "Engineered a full-stack travel recommendation engine achieving 90% personalized destination-match accuracy using a collaborative filtering approach.",
-            "Integrated stateless JWT authentication with refresh-token rotation, securing all protected API routes for over 5,000+ active sessions.",
-            "Built a fully responsive React UI with dynamic filtering, improving measured user engagement by 25% and reducing bounce rate by 18% over static prototype."
+            "Architected a full-stack destination discovery engine with multi-criteria preference matching across budget, climate, and activity vectors.",
+            "Integrated stateless JWT authentication with refresh-token rotation and HTTP-only cookies, securing all protected API endpoints.",
+            "Designed a responsive React UI with dynamic client-side filtering, debounced search queries, and Cloudinary media optimization."
         ],
         image: "https://res.cloudinary.com/diyl4omcs/image/upload/v1750332631/Screenshot_2025-06-19_165713_fypid6.png",
         images: [
@@ -49,9 +49,9 @@ const fallbackProjects = [
         date: "February 2025",
         icon: "🏛️",
         description: [
-            "Developed a civic-tech platform that auto-summarizes local legislation in plain language, improving resident comprehension by 40% among 2,000+ pilot users.",
-            "Implemented Firebase Authentication and Firestore for real-time, secure data management capable of handling 500+ concurrent connections with multi-role access control.",
-            "Designed interactive voting and discussion modules that increased community participation by 30% in pilot studies."
+            "Developed a civic-tech platform that generates accessible summaries of local legislation with structured community feedback channels.",
+            "Implemented multi-role access control (citizens, representatives, moderators) using Firebase Auth and atomic Firestore write batches.",
+            "Designed interactive voting modules and real-time discussion boards with optimistic UI updates and live listener synchronization."
         ],
         image: "https://res.cloudinary.com/diyl4omcs/image/upload/v1750332634/Screenshot_2025-06-19_165742_zhm3m4.png",
         images: [
@@ -68,15 +68,15 @@ const fallbackProjects = [
         }
     },
     {
-        title: "Portfolio Website",
+        title: "Portfolio Website & API Service",
         shortTitle: "Portfolio",
-        category: "Personal Developer Showcase",
+        category: "Full-Stack Web Application",
         date: "May 2025",
         icon: "🌌",
         description: [
-            "A responsive personal portfolio built using React, Node.js, and Express, featuring scroll reveals and galaxy-themed glassmorphism UI.",
-            "Integrated hybrid data loading strategy with seamless fallback to static mock data when API server is unconfigured.",
-            "Engineered modular theme switching and custom micro-animations for an interactive user experience."
+            "Engineered a high-performance developer portfolio in React and Vite with dark/light themes and hardware-accelerated animations.",
+            "Integrated a hybrid data-fetching architecture using custom React hooks with resilient fallback to static data when API is offline.",
+            "Implemented rate-limited Express REST endpoints with input validation middleware and secure CORS policy."
         ],
         image: "https://res.cloudinary.com/diyl4omcs/image/upload/v1750332631/Screenshot_2025-06-19_165607_trrswx.png",
         images: [
@@ -155,11 +155,11 @@ const Projects = () => {
     return (
         <div className="projects-body section" id="projects">
             <h2 className="heading">Featured Projects</h2>
-            <p className="projects-subheading">Select a project icon below to inspect detailed specifications & interactive view</p>
+            <p className="projects-subheading">Select a project below to inspect architectural specifications & live demo</p>
 
             {/* SECTION 1: FIGMA-STYLE CIRCULAR PROJECT SELECTOR */}
             <div className="project-selector-wrapper" ref={selectorRevealRef}>
-                <div className="project-selector-container">
+                <div className="project-selector-container" role="tablist" aria-label="Projects Selection">
                     {resolvedProjects.map((proj, idx) => {
                         const isSelected = idx === selectedIndex;
                         const iconDisplay = proj.icon || (proj.shortTitle ? proj.shortTitle.slice(0, 2).toUpperCase() : `P${idx + 1}`);
@@ -167,6 +167,8 @@ const Projects = () => {
                         return (
                             <button
                                 key={idx}
+                                role="tab"
+                                aria-selected={isSelected}
                                 className={`figma-selector-btn ${isSelected ? 'active' : ''}`}
                                 onClick={() => setSelectedIndex(idx)}
                                 title={proj.title}
