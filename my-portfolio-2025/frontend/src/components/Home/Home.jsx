@@ -9,8 +9,10 @@ import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const fallbackAbout = {
     name: "Sanju Burman",
-    aboutMe: "Full Stack Software Developer with a focus on Java and JavaScript and experience in creating highly available backend services, APIs, and web applications. Excellent skills in designing fault-tolerant systems, engineering payment gateway workflows, and working within a hardware and software ecosystem. Passionate about problem-solving using proper architecture and offline-first databases.",
-    resumeLink: "https://drive.google.com/file/d/1sAO6Br4GErz6svTdRE7BlqV1Mo6HS-Ml/view?usp=sharinghttps://drive.google.com/file/d/1I_7eAiV5k8iefWmSl4o9v6VWJCtPXMnl/view?usp=drive_link",
+    role: "Software Engineer",
+    badge: "Software Engineer • Systems & Backend",
+    aboutMe: "Software Engineer with 1+ year of production experience engineering fault-tolerant transaction pipelines, hardware-integrated dispensing state machines, and resilient offline-first synchronization systems. Focused on building reliable, idempotent services with Go, Node.js, PostgreSQL, and SQLite.",
+    resumeLink: "https://drive.google.com/file/d/1sAO6Br4GErz6svTdRE7BlqV1Mo6HS-Ml/view?usp=sharing",
     image: profilePic,
     socials: {
         linkedin: "https://www.linkedin.com/in/sanju-burman",
@@ -36,9 +38,12 @@ const Home = () => {
 
     const name = about?.name || fallbackAbout.name;
     const aboutMe = about?.aboutMe || fallbackAbout.aboutMe;
-    const resumeLink = about?.resumeLink || fallbackAbout.resumeLink;
+    const resumeLink = (about?.resumeLink && !about.resumeLink.includes('view?usp=sharinghttps'))
+        ? about.resumeLink
+        : fallbackAbout.resumeLink;
     const image = about?.image || profilePic;
     const socials = { ...fallbackAbout.socials, ...about?.socials };
+    const badge = fallbackAbout.badge;
 
     const revealLeft = useScrollReveal('left');
     const revealRight = useScrollReveal('right');
@@ -48,29 +53,39 @@ const Home = () => {
             <div className="home-container">
                 <div className="home-image-wrapper" ref={revealLeft}>
                     <div className="home-image-ring"></div>
-                    <img src={image} alt="Profile" className="home-image" />
+                    <img src={image} alt={`Profile photo of ${name}`} className="home-image" />
                 </div>
 
                 <div className="home-content" ref={revealRight}>
-                    <h1 className="home-name">Hi, I&apos;m {name}</h1>
+                    <div className="home-role-badge">{badge}</div>
+                    <h1 className="home-name">Hi, I&apos;m <span className="home-name-highlight">{name}</span></h1>
                     <p className="home-about">{aboutMe}</p>
-                    {resumeLink && (
-                        <a
-                            href={resumeLink}
-                            target='_blank'
-                            rel="noopener noreferrer"
-                            className="home-resume-btn"
-                        >
-                            Download Resume
+                    
+                    <div className="home-actions">
+                        <a href="#experience" className="home-btn primary-btn">
+                            View Production Work
                         </a>
-                    )}
-                    <div className="home-socials">
+                        {resumeLink && (
+                            <a
+                                href={resumeLink}
+                                target='_blank'
+                                rel="noopener noreferrer"
+                                className="home-btn secondary-btn"
+                                aria-label="Download Sanju Burman Resume PDF"
+                            >
+                                Download Resume
+                            </a>
+                        )}
+                    </div>
+
+                    <div className="home-socials" aria-label="Social Profiles">
                         {socials.linkedin && (
                             <a
                                 href={socials.linkedin}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="home-social-icon"
+                                aria-label="LinkedIn Profile"
                             >
                                 <FaLinkedin title="LinkedIn" />
                             </a>
@@ -81,11 +96,13 @@ const Home = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="home-social-icon"
+                                aria-label="GitHub Profile"
                             >
                                 <FaGithub title="GitHub" />
                             </a>
                         )}
                     </div>
+
                     <div className="home-contact-info">
                         {socials.email && (
                             <p>

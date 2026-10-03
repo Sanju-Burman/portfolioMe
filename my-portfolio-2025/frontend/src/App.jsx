@@ -14,9 +14,9 @@ function App() {
         <div className="shooting-star"></div>
         <Navbar />
         <Home />
-        <Skills />
-        <Projects />
         <Experience />
+        <Projects />
+        <Skills />
         <Education />
         <ContactMe />
         <Footer />
